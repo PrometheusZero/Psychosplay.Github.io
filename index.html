@@ -1,177 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 	<head>
 		<meta charset="utf-8">
 		<title>Vertical Monopoly</title>
-		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
+	
+	
 <body id="BodyColor" class="HolyGrailWhite">
-
-  <div class="HolyGrail-body">
-    <nav class="HolyGrail-nav">
+	<div class="HolyGrail-body">
+	<!----------------------->
+	<!-- START OF SIDE TAB -->
+	<!----------------------->
+	<nav class="HolyGrail-nav">
 		<h3><span id="tillautosave"> </span> seconds until autosave</h3>
 		<span id="status"></span>
 		<span id="ContractShift"> </span>
+		
 		<table>
-		<tr>
-			<th width="45%"><h1>Resource <span id="DebugMenu"></span></h1></th> <th align="left" width="40%"><img src="persec.png" title="Resources Per Second" alt="Per Second"></th> <th width="15%"><img src="anticontracts.png" title="Anti-Contracts" alt="Anti-Contracts"></th>
-		<tr>
-			<td><h2><Font COLOR="#006600">&emsp;$<span id="Money"></span></font></h2></td> <td><h2><Font COLOR="#006600">$<span id="MoneyPS"></span></font></h2></td>
-		</tr>
-		<tr>
-			<td><h2>&emsp;Power: <span id="MWh"></span> Mega-Watt <br />&emsp;Hours at $<span STYLE="=font-size: 14pt" id="MWhCost"></span></h2></td><td><h2>$<span id="MWhMoney"></span> </h2></td>
-		</tr>
-		<tr id="GoldCoinResource" class="swHide">
-			<td><h2>&emsp;<FONT COLOR="#DFBC00"><span id="GoldCoin"></span> Gold Coins</FONT></h2>
-		</tr>
-		<tr id="FavourResource" class="swHide">
-			<td><h2>&emsp;<FONT COLOR="#000066"><span id="Favour"></span> Favours</FONT></h2>
-		</tr>
-		<tr id="IronResource" class="swHide">
-			<td><h2>&emsp;<mark id="IronMark" class="MarkInvisible">		<FONT COLOR="#666666"><span id="Iron"></span> Iron</td>				<td><h2><FONT COLOR="#666666"><span id="IronPS"></span> Iron</font></h2></td>		<td><h2><FONT COLOR="#666666"><span id="IronAntiContract"></span>  </FONT></mark></h2> </td>
-		</tr>
-		<tr id="RefIronResource" class="swHide">
-			<td><h2>&emsp;<mark id="RefIronMark" class="MarkInvisible">	<FONT COLOR="#666666"><span id="RefIron"></span> Refined Iron</td>	<td><h2><FONT COLOR="#666666"><span id="RefIronPS"></span> Refined Iron</td>			<td><h2><FONT COLOR="#666666"><span id="RefIronAntiContract"></span> </FONT></mark></h2></td>
-		</tr>
-		<tr id="MotorResource" class="swHide">
-			<td><h2>&emsp;<mark id="MotorMark" class="MarkInvisible">  	<FONT COLOR="#666666"><span id="Motor"></span> Motors</td>			<td><h2><FONT COLOR="#666666"><span id="MotorPS"></span> Motors</td>					<td><h2><FONT COLOR="#666666"><span id="MotorAntiContract"></span> </FONT></mark></h2> </td>
-		</tr>
-		<tr id="CarResource" class="swHide">
-			<td><h2>&emsp;<mark id="CarMark" class="MarkInvisible">  		<FONT COLOR="#666666"><span id="Car"></span> Cars</td>				<td><h2><FONT COLOR="#666666"><span id="CarPS"></span> Cars</td>						<td><h2><FONT COLOR="#666666"><span id="CarAntiContract"></span> </FONT></mark></h2> </td>
-		</tr>
-		<tr id="PlaneResource" class="swHide">
-			<td><h2>&emsp;<mark id="PlaneMark" class="MarkInvisible">  	<span id="Plane"></span>/<span id="PlaneLimit"></span> Planes</td>	<td><h2><FONT COLOR="#000"><span id="PlanePS"></span> Planes in <span id="ThirtySecondCounter"></span> Seconds</mark></h2></td>
-		</tr>
-		<tr>
-		<td><br /></td>
-		</tr>
-		<tr id="CoalResource" class="swHide">
-			<td><h2>&emsp;<mark id="CoalMark" class="MarkInvisible">  	<Font><span id="Coal"></span> Coal</td>								<td><h2><FONT COLOR="#666666"><span id="CoalPS"></span> Coal</td>					<td><h2><FONT COLOR="#666666"><span id="CoalAntiContract"></span> </Font></mark></h2> </td>
-		</tr>
-		<tr id="SteelResource" class="swHide">
-			<td><h2>&emsp;<mark id="SteelMark" class="MarkInvisible">  	<FONT COLOR="#000066"><span id="Steel"></span> Steel</td>			<td><h2><FONT COLOR="#000066"><span id="SteelPS"></span> Steel</td>					<td><h2><FONT COLOR="#000066"><span id="SteelAntiContract"></span>  </FONT></mark></h2> </td>
-		</tr>
-		<tr id="MechPartResource" class="swHide">
-			<td><h2>&emsp;<mark id="MechPartMark" class="MarkInvisible">  <span id="MechPart"></span> Mechanical Parts</td>					<td><h2><span id="MechPartPS"></span> Mechanical Parts</td>							<td><h2><FONT COLOR="#v"><span id="MechPartAntiContract"></span> </FONT></mark></h2> </td>
-		</tr>
-		<tr id="ACResource" class="swHide">
-			<td><h2>&emsp;<mark id="ACMark" class="MarkInvisible">  		<span id="AC"></span> A/C Unit</td>									<td><h2><span id="ACPS"></span> A/C Units</td>										<td><h2><FONT COLOR="#000"><span id="ACAntiContract"></span> </FONT></mark></h2></td>
-		</tr>
-		<tr id="ConsPartResource" class="swHide">
-			<td><h2>&emsp;<mark id="ConsPartMark" class="MarkInvisible"> 	<span id="ConsPart"></span> Constrution Parts</td>					<td><h2><span id="ConsPartPS"></span> Construction Parts</td>						<td><h2><FONT COLOR="#000"><span id="ConsPartAntiContract"></span> </mark></FONT></h2></td>
-		</tr>
-		<tr id="BuildTimeResource" class="swHide">
-			<td><h2>Construction: <span id="BuildTime"></span> seconds to build. </h2></td>
-		</tr>
-		<tr>
-		<td><br /></td>
-		</tr>
+			<tr>
+				<th width="45%">
+					<h1>Resource <span id="DebugMenu"></span></h1>
+				</th>
+				<th align="left" width="40%">
+					<img src="persec.png" title="Resources Per Second" alt="Per Second">
+				</th>
+				<th width="15%">
+					<img src="anticontracts.png" title="Anti-Contracts" alt="Anti-Contracts">
+				</th>
+			</tr>
+			
+			<tr>
+				<td>
+					<h2 class="text-green">&emsp;$<span id="Money"></span></h2>
+				</td>
+				<td>
+					<h2 class="text-green">$<span id="MoneyPS"></span></h2>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<h2>&emsp;Power: <span id="MWh"></span> Mega-Watt<br />&emsp;Hours at $<span id="MWhCost"></span></h2>
+				</td>
+				<td>
+					<h2>$<span id="MWhMoney"></span></h2>
+				</td>
+			</tr>
+			
+			<tr id="GoldCoinResource" class="swHide">
+				<td>
+					<h2 class="text-gold">&emsp;<span id="GoldCoin"></span> Gold Coins</h2>
+				</td>
+			</tr>
+			
+			<tr id="FavourResource" class="swHide">
+				<td>
+					<h2 class="text-navy">&emsp;<span id="Favour"></span> Favours</h2>
+				</td>
+			</tr>
+			
+			<tr id="IronResource" class="swHide">
+				<td>
+					<h2 class="text-grey40">&emsp;<mark id="IronMark" class="MarkInvisible"><span id="Iron"></span> Iron</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="IronPS"></span> Iron</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="IronAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="RefIronResource" class="swHide">
+				<td>
+					<h2 class="text-grey40">&emsp;<mark id="RefIronMark" class="MarkInvisible"><span id="RefIron"></span> Refined Iron</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="RefIronPS"></span> Refined Iron</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="RefIronAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="MotorResource" class="swHide">
+				<td>
+					<h2 class="text-grey40">&emsp;<mark id="MotorMark" class="MarkInvisible"><span id="Motor"></span> Motors</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="MotorPS"></span> Motors</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="MotorAntiContract"></span></FONT></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="CarResource" class="swHide">
+				<td>
+					<h2 class="text-grey40">&emsp;<mark id="CarMark" class="MarkInvisible"><span id="Car"></span> Cars</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="CarPS"></span> Cars</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="CarAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="PlaneResource" class="swHide">
+				<td>
+					<h2>&emsp;<mark id="PlaneMark" class="MarkInvisible"><span id="Plane"></span>/<span id="PlaneLimit"></span> Planes</h2>
+				</td>
+				<td>
+					<h2><span id="PlanePS"></span> Planes in <span id="ThirtySecondCounter"></span> Seconds</mark></h2>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td><br /></td>
+			</tr>
+			
+			
+			<tr id="CoalResource" class="swHide">
+				<td>
+					<h2 class="text-grey40">&emsp;<mark id="CoalMark" class="MarkInvisible"><span id="Coal"></span> Coal</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="CoalPS"></span> Coal</h2>
+				</td>
+				<td>
+					<h2 class="text-grey40"><span id="CoalAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="SteelResource" class="swHide">
+				<td>
+					<h2 class="text-navy">&emsp;<mark id="SteelMark" class="MarkInvisible"><span id="Steel"></span> Steel</h2>
+				</td>
+				<td>
+					<h2 class="text-navy"><span id="SteelPS"></span> Steel</h2>
+				</td>
+				<td>
+					<h2 class="text-navy"><span id="SteelAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="MechPartResource" class="swHide">
+				<td>
+					<h2>&emsp;<mark id="MechPartMark" class="MarkInvisible"><span id="MechPart"></span> Mechanical Parts</h2>
+				</td>
+				<td>
+					<h2><span id="MechPartPS"></span> Mechanical Parts</h2>
+				</td>
+				<td>
+					<h2><span id="MechPartAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="ACResource" class="swHide">
+				<td>
+					<h2>&emsp;<mark id="ACMark" class="MarkInvisible"><span id="AC"></span> A/C Unit</h2>
+				</td>
+				<td>
+					<h2><span id="ACPS"></span> A/C Units</h2>
+				</td>
+				<td>
+					<h2><span id="ACAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="ConsPartResource" class="swHide">
+				<td>
+					<h2>&emsp;<mark id="ConsPartMark" class="MarkInvisible"><span id="ConsPart"></span> Constrution Parts</h2>
+				</td>
+				<td>
+					<h2><span id="ConsPartPS"></span> Construction Parts</h2>
+				</td>
+				<td>
+					<h2><span id="ConsPartAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="BuildTimeResource" class="swHide">
+				<td>
+					<h2>Construction: <span id="BuildTime"></span> seconds to build. </h2>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td><br /></td>
+			</tr>
 		
-		<tr id="CopperResource" class="swHide">
-			<td><h2>&emsp;<mark id="CopperMark" class="MarkInvisible">  <FONT COLOR="#996600"><span id="Copper"></span> Copper</td>			<td><h2><FONT COLOR="#996600"><span id="CopperPS"></span> Copper</td>				<td><h2><FONT COLOR="#996600"><span id="CopperAntiContract"></span>  </mark></h2></td>
-		</tr>
-		<tr id="RefCopperResource" class="swHide">
-			<td><h2>&emsp;<mark id="RefCopperMark" class="MarkInvisible"> <FONT COLOR="#996600"><span id="RefCopper"></span> Refined Copper</td><td><h2><FONT COLOR="#996600"><span id="RefCopperPS"></span> Refined Copper</td>	<td><h2><FONT COLOR="#996600"><span id="RefCopperAntiContract"></span>  </mark></h2> </td>
-		</tr>
-		<tr id="SpoolResource" class="swHide">
-			<td><h2>&emsp;<mark id="SpoolMark" class="MarkInvisible"> <FONT COLOR="#996600"><span id="Spool"></span> Spools</td>				<td><h2><FONT COLOR="#996600"><span id="SpoolPS"></span> Spools</td>					<td><h2><FONT COLOR="#996600"><span id="SpoolAntiContract"></span>  </FONT></mark></h2></td>
-		</tr>
-		<tr id="ElectronicResource" class="swHide">
-			<td><h2>&emsp;<mark id="ElecMark" class="MarkInvisible"> <FONT COLOR="#006600"><span id="Electronic"></span> Electronics</td>			<td><h2><FONT COLOR="#006600"><span id="ElectronicPS"></span> Electronics</td>		<td><h2><FONT COLOR="#006600"><span id="ElecAntiContract"></span>  </FONT></mark></h2></td>
-		</tr>
+			
+			<tr id="CopperResource" class="swHide">
+				<td>
+					<h2 class="text-copper">&emsp;<mark id="CopperMark" class="MarkInvisible"><span id="Copper"></span> Copper</h2>
+				</td>
+				<td>
+					<h2 class="text-copper"><span id="CopperPS"></span> Copper</h2>
+				</td>
+				<td>
+					<h2 class="text-copper"><span id="CopperAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="RefCopperResource" class="swHide">
+				<td>
+					<h2 class="text-copper">&emsp;<mark id="RefCopperMark" class="MarkInvisible"><span id="RefCopper"></span> Refined Copper</h2>
+				</td>
+				<td>
+					<h2 class="text-copper"><span id="RefCopperPS"></span> Refined Copper</h2>
+				</td>
+				<td>
+					<h2 class="text-copper"><span id="RefCopperAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="SpoolResource" class="swHide">
+				<td>
+					<h2 class="text-copper">&emsp;<mark id="SpoolMark" class="MarkInvisible"><span id="Spool"></span> Spools</h2>
+				</td>
+				<td>
+					<h2 class="text-copper"><span id="SpoolPS"></span> Spools</h2>
+				</td>
+				<td>
+					<h2 class="text-copper"><span id="SpoolAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="ElectronicResource" class="swHide">
+				<td>
+					<h2 class="text-green">&emsp;<mark id="ElecMark" class="MarkInvisible"><span id="Electronic"></span> Electronics</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="ElectronicPS"></span> Electronics</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="ElecAntiContract"></span></mark></h2>
+				</td>
+			</tr>
 		
-		<tr>
-		<td><br /></td>
-		</tr>
+			
+			<tr>
+				<td><br /></td>
+			</tr>
 		
-		<tr id="OilResource" class="swHide">
-			<td><h2>&emsp;<mark id="OilMark" class="MarkInvisible">  <FONT><span id="Oil"></span> Oil</td>									<td><h2><FONT COLOR="#000"><span id="OilPS"></span> Oil</td>							<td><h2><FONT COLOR="#000"><span id="OilAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>
-		<tr id="GasResource" class="swHide">
-			<td><h2>&emsp;<mark id="GasMark" class="MarkInvisible">  <FONT COLOR="#594d3e"><FONT><span id="Gas"></span> Gas</td>				<td><h2><FONT COLOR="#594d3e"><span id="GasPS"></span> Gas</td>						<td><h2><FONT COLOR="#594d3e"><span id="GasAntiContract"></span>  </FONT></mark></h2> </td>
-		</tr>
-		<tr id="PlasticResource" class="swHide">
-			<td><h2>&emsp;<mark id="PlasticMark" class="MarkInvisible">  <FONT><span id="Plastic"></span> Plastic </td>						<td><h2><FONT COLOR="#000"><span id="PlasticPS"></span> Plastic</td>					<td><h2><FONT COLOR="#000"><span id="PlasticAntiContract"></span>  </FONT></mark></h2></td>
-		</tr>
+			
+			<tr id="OilResource" class="swHide">
+				<td>
+					<h2>&emsp;<mark id="OilMark" class="MarkInvisible"><span id="Oil"></span> Oil</h2>
+				</td>
+				<td>
+					<h2><span id="OilPS"></span> Oil</h2>
+				</td>
+				<td>
+					<h2><span id="OilAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="GasResource" class="swHide">
+				<td>
+					<h2 class="text-brown">&emsp;<mark id="GasMark" class="MarkInvisible"><span id="Gas"></span> Gas</h2>
+				</td>
+				<td>
+					<h2 class="text-brown"><span id="GasPS"></span> Gas</h2>
+				</td>
+				<td>
+					<h2 class="text-brown"><span id="GasAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="PlasticResource" class="swHide">
+				<td>
+					<h2>&emsp;<mark id="PlasticMark" class="MarkInvisible"><span id="Plastic"></span> Plastic</h2>
+				</td>
+				<td>
+					<h2><span id="PlasticPS"></span> Plastic</h2>
+				</td>
+				<td>
+					<h2><span id="PlasticAntiContract"></span></mark></h2>
+				</td>
+			</tr>
 		
-		<tr>
-		<td><br /></td>
-		</tr>
+			
+			<tr>
+				<td><br /></td>
+			</tr>
 		
-		<tr id="SandResource" class="swHide">
-			<td><h2>&emsp;<mark id="SandMark" class="MarkInvisible">  <FONT COLOR="#805500"><span id="Sand"></span> Sand</td>					<td><h2><FONT COLOR="#805500"><span id="SandPS"></span> Sand</td>					<td><h2><FONT COLOR="#805500"><span id="SandAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>
-		<tr id="GlassResource" class="swHide">
-			<td><h2>&emsp;<mark id="GlassMark" class="MarkInvisible">  <FONT COLOR="#2952a3"><span id="Glass"></span> Glass</td>				<td><h2><FONT COLOR="#2952a3"><span id="GlassPS"></span> Glass</td>					<td><h2><FONT COLOR="#2952a3"><span id="GlassAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>
-		<tr id="LightbulbResource" class="swHide">
-			<td><h2>&emsp;<mark id="LightbulbMark" class="MarkInvisible">  <FONT COLOR="#2952a3"><span id="Lightbulb"></span> Lightbulb</td>	<td><h2><FONT COLOR="#2952a3"><span id="LightbulbPS"></span> Lightbulbs</td>			<td><h2><FONT COLOR="#2952a3"><span id="LightbulbAntiContract"></span>   </FONT></mark></h2> </td><br /><br />
+			
+			<tr id="SandResource" class="swHide">
+				<td>
+					<h2 class="text-sand">&emsp;<mark id="SandMark" class="MarkInvisible"><span id="Sand"></span> Sand</h2>
+				</td>
+				<td>
+					<h2 class="text-sand"><span id="SandPS"></span> Sand</h2>
+				</td>
+				<td>
+					<h2 class="text-sand"><span id="SandAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="GlassResource" class="swHide">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="GlassMark" class="MarkInvisible"><span id="Glass"></span> Glass</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="GlassPS"></span> Glass</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="GlassAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="LightbulbResource" class="swHide">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="LightbulbMark" class="MarkInvisible"><span id="Lightbulb"></span> Lightbulb</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="LightbulbPS"></span> Lightbulbs</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="LightbulbAntiContract"></span></mark></h2>
+				</td>
+			</tr>
 		
-		</tr>
+			
+			<tr>
+				<td><br /></td>
+			</tr>
 		
-		<tr>
-		<td><br /></td>
-		</tr>
+			
+			<tr id="SiliconResource" class="swHide">
+				<td>
+					<h2>&emsp;<mark id="SiliconMark" class="MarkInvisible"><span id="Silicon"></span> Silicon</h2>
+				</td>
+				<td>
+					<h2><span id="SiliconPS"></span> Silicon</h2>
+				</td>
+				<td>
+					<h2><span id="SiliconAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="AdvElectronicResource" class="swHide">
+				<td>
+					<h2 class="text-green">&emsp;<mark id="AdvElecMark" class="MarkInvisible"><span id="AdvElectronic"></span> Advanced Electronics</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="AdvElectronicPS"></span> Advanced Electronics</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="AdvElecAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			<tr id="CodeResource" class="swHide">
+				<td>
+					<h2>&emsp;<mark id="CodeMark" class="MarkInvisible"><span id="Code"></span> Lines of Code</mark></h2>
+				</td>
+				<td>
+					<h2><span id="CodePS"></span> Lines of Code</font></h2>
+				</td>
+				<td>
+					<h2><span id="CodeAntiContract"></span></h2>
+				</td>
+			</tr>
+			
+			<tr id="SoftwareResource" class="swHide">
+				<td>
+					<h2><span id="Software"></span> Software</h2>
+				</td>
+			</tr>
+			
+			<tr id="WeedResource" class="swHideWords">
+				<td>
+					<h2 class="text-green">&emsp;<mark id="WeedMark" class="MarkInvisible"><span id="Weed"></span> Weed</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="WeedPS"></span> Weed</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="WeedAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
 		
-		<tr id="SiliconResource" class="swHide">
-			<td><h2>&emsp;<mark id="SiliconMark" class="MarkInvisible"> <FONT COLOR="#000"><span id="Silicon"></span> Silicon</td>			<td><h2><FONT COLOR="#000"><span id="SiliconPS"></span> Silicon</td>	<td><h2><FONT COLOR="#000"><span id="SiliconAntiContract"></span>  </mark></h2> </td>
-		</tr>
-		<tr id="AdvElectronicResource" class="swHide">
-			<td><h2>&emsp;<mark id="AdvElecMark" class="MarkInvisible"> <FONT COLOR="#006600"><span id="AdvElectronic"></span> Advanced Electronics</td><td><h2><FONT COLOR="#006600"><span id="AdvElectronicPS"></span> Advanced Electronics</td>		<td><h2><FONT COLOR="#006600"><span id="AdvElecAntiContract"></span>  </FONT></mark></h2></td>
-		</tr>
-		<tr id="CodeResource" class="swHide">
-			<td><h2>&emsp;<mark id="CodeMark" class="MarkInvisible"> <FONT COLOR="#000"><span id="Code"></span> Lines of Code</mark></h2></td><td><h2><FONT COLOR="#000"><span id="CodePS"></span> Lines of Code</font></td>		<td><h2><FONT COLOR="#000"><span id="CodeAntiContract"></span>  </FONT></h2></td>
-		</tr>
-		<tr id="SoftwareResource" class="swHide">
-			<td><h2><span id="Software"></span> Software</h2></td>
-		</tr>
-		<tr id="WeedResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="WeedMark" class="MarkInvisible">  <FONT COLOR="#006600"><span id="Weed"></span> Weed</td>					<td><h2><FONT COLOR="#006600"><span id="WeedPS"></span> Weed</td>					<td><h2><FONT COLOR="#006600"><span id="WeedAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<td><br /></td>
-		<tr id="CocaResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="CocaMark" class="MarkInvisible">  <FONT COLOR="#006600"><span id="Coca"></span> Coca</td>					<td><h2><FONT COLOR="#006600"><span id="CocaPS"></span> Coca</td>					<td><h2><FONT COLOR="#006600"><span id="CocaAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="CocaineResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="CocaineMark" class="MarkInvisible">  <FONT COLOR="#006600"><span id="Cocaine"></span> Cocaine</td>					<td><h2><FONT COLOR="#006600"><span id="CocainePS"></span> Cocaine</td>					<td><h2><FONT COLOR="#006600"><span id="CocaineAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="CrackResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="CrackMark" class="MarkInvisible">  <FONT COLOR="#2952a3"><span id="Crack"></span> Crack</td>					<td><h2><FONT COLOR="#2952a3"><span id="CrackPS"></span> Crack</td>					<td><h2><FONT COLOR="#2952a3"><span id="CrackAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<td><br /></td>
-		<tr id="SudafedResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="SudafedMark" class="MarkInvisible">  <FONT COLOR="#000"><span id="Sudafed"></span> Sudafed</td>					<td><h2><FONT COLOR="#000"><span id="SudafedPS"></span> Sudafed</td>					<td><h2><FONT COLOR="#000"><span id="SudafedAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="MethResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="MethMark" class="MarkInvisible">  <FONT COLOR="#2952a3"><span id="Meth"></span> Meth</td>					<td><h2><FONT COLOR="#2952a3"><span id="MethPS"></span> Meth</td>					<td><h2><FONT COLOR="#2952a3"><span id="MethAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<td><br /></td>
-		<tr id="SmallArmResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="SmallArmMark" class="MarkInvisible">  <FONT COLOR="#2952a3"><span id="SmallArm"></span> Small Arm</td>					<td><h2><FONT COLOR="#2952a3"><span id="SmallArmPS"></span> Small Arm</td>					<td><h2><FONT COLOR="#2952a3"><span id="SmallArmAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="HeavyArmResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="HeavyArmMark" class="MarkInvisible">  <FONT COLOR="#2952a3"><span id="HeavyArm"></span> Heavy Arm</td>					<td><h2><FONT COLOR="#2952a3"><span id="HeavyArmPS"></span> Heavy Arm</td>					<td><h2><FONT COLOR="#2952a3"><span id="HeavyArmAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="SaltpeterResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="SaltpeterMark" class="MarkInvisible">  <FONT COLOR="#2952a3"></td>					<td><h2><FONT COLOR="#2952a3"><span id="SaltpeterPS"></span> Saltpeter</td>					<td><h2><FONT COLOR="#2952a3"><span id="SaltpeterAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="GunpowderResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="GunpowderMark" class="MarkInvisible">  <FONT COLOR="#2952a3"></td>					<td><h2><FONT COLOR="#2952a3"><span id="GunpowderPS"></span> Gunpowder</td>					<td><h2><FONT COLOR="#2952a3"><span id="GunpowderAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="SmallCaliberResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="SmallCaliberMark" class="MarkInvisible">  <FONT COLOR="#2952a3"><span id="SmallCaliber"></span> Small Caliber</td>					<td><h2><FONT COLOR="#2952a3"><span id="SmallCaliberPS"></span> Small Caliber</td>					<td><h2><FONT COLOR="#2952a3"><span id="SmallCaliberAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="HighCaliberResource" class="swHideWords">
-			<td><h2>&emsp;<mark id="HighCaliberMark" class="MarkInvisible">  <FONT COLOR="#2952a3"><span id="HighCaliber"></span> High Caliber</td>					<td><h2><FONT COLOR="#2952a3"><span id="HighCaliberPS"></span> High Caliber</td>					<td><h2><FONT COLOR="#2952a3"><span id="HighCaliberAntiContract"></span>   </FONT></mark></h2> </td>
-		</tr>	
-		<tr id="HighTimerResource" class="swHideWords">
-			<td><h2><FONT COLOR="#000"><span id="HighTimer"></span> Seconds left of your High</FONT></h2></td>
-		</tr>	
+			
+			<tr>
+				<td><br /></td>
+			</tr>
+			
+			
+			<tr id="CocaResource" class="swHideWords">
+				<td>
+					<h2 class="text-green">&emsp;<mark id="CocaMark" class="MarkInvisible"><span id="Coca"></span> Coca</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="CocaPS"></span> Coca</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="CocaAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="CocaineResource" class="swHideWords">
+				<td>
+					<h2 class="text-green">&emsp;<mark id="CocaineMark" class="MarkInvisible"><span id="Cocaine"></span> Cocaine</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="CocainePS"></span> Cocaine</h2>
+				</td>
+				<td>
+					<h2 class="text-green"><span id="CocaineAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="CrackResource" class="swHideWords">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="CrackMark" class="MarkInvisible"><span id="Crack"></span> Crack</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="CrackPS"></span> Crack</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="CrackAntiContract"></span></mark></h2>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td><br /></td>
+			</tr>
+			
+			
+			<tr id="SudafedResource" class="swHideWords">
+				<td>
+					<h2>&emsp;<mark id="SudafedMark" class="MarkInvisible"><span id="Sudafed"></span> Sudafed</h2>
+				</td>
+				<td>
+					<h2><span id="SudafedPS"></span> Sudafed</h2>
+				</td>
+				<td>
+					<h2><span id="SudafedAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="MethResource" class="swHideWords">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="MethMark" class="MarkInvisible"><span id="Meth"></span> Meth</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"></h2><span id="MethPS"></span> Meth</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="MethAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			
+			<tr>
+				<td><br /></td>
+			</tr>
+			
+			
+			<tr id="SmallArmResource" class="swHideWords">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="SmallArmMark" class="MarkInvisible"><span id="SmallArm"></span> Small Arm</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="SmallArmPS"></span> Small Arm</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="SmallArmAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="HeavyArmResource" class="swHideWords">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="HeavyArmMark" class="MarkInvisible"><span id="HeavyArm"></span> Heavy Arm</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="HeavyArmPS"></span> Heavy Arm</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="HeavyArmAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="SaltpeterResource" class="swHideWords">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="SaltpeterMark" class="MarkInvisible"></h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="SaltpeterPS"></span> Saltpeter</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="SaltpeterAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="GunpowderResource" class="swHideWords">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="GunpowderMark" class="MarkInvisible"></h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="GunpowderPS"></span> Gunpowder</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="GunpowderAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="SmallCaliberResource" class="swHideWords">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="SmallCaliberMark" class="MarkInvisible"><span id="SmallCaliber"></span> Small Caliber</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="SmallCaliberPS"></span> Small Caliber</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="SmallCaliberAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="HighCaliberResource" class="swHideWords">
+				<td>
+					<h2 class="text-blue">&emsp;<mark id="HighCaliberMark" class="MarkInvisible"><span id="HighCaliber"></span> High Caliber</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"></h2><span id="HighCaliberPS"></span> High Caliber</h2>
+				</td>
+				<td>
+					<h2 class="text-blue"><span id="HighCaliberAntiContract"></span></mark></h2>
+				</td>
+			</tr>	
+			
+			<tr id="HighTimerResource" class="swHideWords">
+				<td>
+					<h2><span id="HighTimer"></span> Seconds left of your High</h2>
+				</td>
+			</tr>	
 		</table>
-		<!-- also add in an empty status text area -->
-		<br /><br />
+		
+		<br />
+		<br />
 
-</nav>
+	</nav>
+	<!--------------------->
+	<!-- END OF SIDE TAB -->
+	<!--------------------->
 	
 	
 	<div id="myModal" class="modal">
@@ -182,6 +561,7 @@
 		</div>
 
 	</div>
+	
 	<div id="CrimeModal" class="modal">
 
 		<!-- Modal content -->
@@ -192,597 +572,1162 @@
 
 	</div>
 	
-    <main class="HolyGrail-content">
-	<script src="engine.js"></script>
-	<ul class="tab">
-		<li id="IronTab2" class="swMain"><a href="#" class="tablinks" onclick="openCity(event, 'IronTab')">Iron</a></li>
-		<li id="CoalTab2" class="swMain"><a href="#" class="tablinks" onclick="openCity(event, 'CoalTab')">Coal</a></li>
-		<li id="CopperTab2" class="swMain"><a href="#" class="tablinks" onclick="openCity(event, 'CopperTab')">Copper</a></li>
-		<li id="OilTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'OilTab')">Oil</a></li>
-		<li id="GlassTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'GlassTab')">Sand</a></li>
-		<li id="WorkshopTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'WorkshopTab')">Workshop</a></li>
-		<li id="PowerTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'PowerTab')">Power</a></li>
-		<li id="BuildingTab2" class="swMain"><a href="#" class="tablinks" onclick="openCity(event, 'BuildingTab')">Building</a></li>
-		<li id="DealershipTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'CarsTab')">Dealership</a></li>
-		<li id="AirportTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'PlanesTab')">Airport</a></li>
-		<li id="ConstructionTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'ConstructionTab')">Construction</a></li>
-		<li id="LicenseTab2" class="swMain"><a href="#" class="tablinks" onclick="openCity(event, 'LicenseTab')">License</a></li>
-		
-		
-				<li id="WeedTab2" class="swHideWords"><a href="#" class="tablinks" onclick="openCity(event, 'WeedTab')">Weed</a></li>
-				<li id="CocaineTab2" class="swHideWords"><a href="#" class="tablinks" onclick="openCity(event, 'CocaineTab')">Cocaine</a></li>
-				<li id="MethTab2" class="swHideWords"><a href="#" class="tablinks" onclick="openCity(event, 'MethTab')">Meth</a></li>
-				<li id="GunTab2" class="swHideWords"><a href="#" class="tablinks" onclick="openCity(event, 'GunTab')">Gun</a></li>
-				<li id="AmmoTab2" class="swHideWords"><a href="#" class="tablinks" onclick="openCity(event, 'AmmoTab')">Ammo</a></li>
-				
-				
-		<li id="AccountingTab2" class="swMain"><a href="#" class="tablinks" onclick="openCity(event, 'AccountingTab')">Accounting</a></li>
-		<!-- <li><a href="#" class="tablinks" onclick="openCity(event, 'LandTab')">Land</a></li>-->
-		<li><a href="#" class="tablinks" onclick="openCity(event, 'OptionsTab')">Options</a></li>
-		<li><a href="#" class="tablinks" onclick="openCity(event, 'HelpTab')">Help</a></li>
-		<li id="GildedTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'GildedTab')">Gilded</a></li>
-		<li id="FavourTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'FavourTab')">Favours</a></li>
-		
-		
-		<!-- <li id="1" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'GildedTab')">Placeholder Placeholder </a></li> -->
-		
-	</ul>
+    
+	
+	<main class="HolyGrail-content">
+		<!---------------------->
+		<!-- START OF TOP NAV -->
+		<!---------------------->
+		<ul class="tab">
+			<!-- MAIN TABS -->
+			<li id="IronTab2" class="swMain">
+				<a href="#" class="tablinks" onclick="openCity(event, 'IronTab')">Iron</a>
+			</li>
+			<li id="CoalTab2" class="swMain">
+				<a href="#" class="tablinks" onclick="openCity(event, 'CoalTab')">Coal</a>
+			</li>
+			<li id="CopperTab2" class="swMain">
+				<a href="#" class="tablinks" onclick="openCity(event, 'CopperTab')">Copper</a>
+			</li>
+			<li id="OilTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'OilTab')">Oil</a>
+			</li>
+			<li id="GlassTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'GlassTab')">Sand</a>
+			</li>
+			<li id="WorkshopTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'WorkshopTab')">Workshop</a>
+			</li>
+			<li id="PowerTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'PowerTab')">Power</a>
+			</li>
+			<li id="BuildingTab2" class="swMain">
+				<a href="#" class="tablinks" onclick="openCity(event, 'BuildingTab')">Building</a>
+			</li>
+			<li id="DealershipTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'CarsTab')">Dealership</a>
+			</li>
+			<li id="AirportTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'PlanesTab')">Airport</a>
+			</li>
+			<li id="ConstructionTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'ConstructionTab')">Construction</a>
+			</li>
+			<li id="LicenseTab2" class="swMain">
+				<a href="#" class="tablinks" onclick="openCity(event, 'LicenseTab')">License</a>
+			</li>
+			<!-- CONTRA TABS -->
+			<li id="WeedTab2" class="swHideWords">
+				<a href="#" class="tablinks" onclick="openCity(event, 'WeedTab')">Weed</a>
+			</li>
+			<li id="CocaineTab2" class="swHideWords">
+				<a href="#" class="tablinks" onclick="openCity(event, 'CocaineTab')">Cocaine</a>
+			</li>
+			<li id="MethTab2" class="swHideWords">
+				<a href="#" class="tablinks" onclick="openCity(event, 'MethTab')">Meth</a>
+			</li>
+			<li id="GunTab2" class="swHideWords">
+				<a href="#" class="tablinks" onclick="openCity(event, 'GunTab')">Gun</a>
+			</li>
+			<li id="AmmoTab2" class="swHideWords">
+				<a href="#" class="tablinks" onclick="openCity(event, 'AmmoTab')">Ammo</a>
+			</li>
+			<!-- CONFIG TABS -->
+			<li id="AccountingTab2" class="swMain">
+				<a href="#" class="tablinks" onclick="openCity(event, 'AccountingTab')">Accounting</a>
+			</li>
+			<!-- <li>
+				<a href="#" class="tablinks" onclick="openCity(event, 'LandTab')">Land</a>
+			</li>-->
+			<li>
+				<a href="#" class="tablinks" onclick="openCity(event, 'OptionsTab')">Options</a>
+			</li>
+			<li>
+				<a href="#" class="tablinks" onclick="openCity(event, 'HelpTab')">Help</a>
+			</li>
+			<li id="GildedTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'GildedTab')">Gilded</a>
+			</li>
+			<li id="FavourTab2" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'FavourTab')">Favours</a>
+			</li>
+			<!-- <li id="1" class="swHide">
+				<a href="#" class="tablinks" onclick="openCity(event, 'GildedTab')">Placeholder</a>
+			</li> -->
+		</ul>
+		<!-------------------->
+		<!-- END OF TOP NAV -->
+		<!-------------------->
 
+		
+		<!----------------------->
+		<!-- START OF IRON TAB -->
+		<!----------------------->
 		<div id="IronTab" class="tabcontent">
 			<!-- Iron -->
-				<button class="swButtonIron" type="submit" id="buyironmine"><h1>Iron Mines</h1>
-				<h2>5 Iron/Second</h2>
-				<h2> <span id="IronMine"></span> Iron Mines | Cost: $<span id="IronMineCost"></span>  </h2></button>
+				<button class="swButtonIron" type="submit" id="buyironmine">
+					<h1>Iron Mines</h1>
+					<h2>5 Iron/Second</h2>
+					<h2><span id="IronMine"></span> Iron Mines | Cost: $<span id="IronMineCost"></span></h2>
+				</button>
 				
-				<button class="swHide" type="submit" id="upgradeironMine"><h1>Iron Drill</h1>
-				<h2>20 Iron/1 Gas per Second</h2>
-				<h2> <span id="IronDrill"></span> Iron Drills | Costs: 1 Drill | 1 Iron Mine</h2></button>
+				<button class="swHide" type="submit" id="upgradeironMine">
+					<h1>Iron Drill</h1>
+					<h2>20 Iron/1 Gas per Second</h2>
+					<h2><span id="IronDrill"></span> Iron Drills | Costs: 1 Drill | 1 Iron Mine</h2>
+				</button>
 				
-				<button class="swButtonIron" type="submit" id="buyironcontract"><h1>Iron Contracts</h1>
-				<h2>$<span id="IronContractMoney"></span>/10 Iron</h2>
-				<h2> <span id="IronContract"></span> Iron Contracts | Cost: <span id="IronContractCost"></span> Iron </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swButtonIron" type="submit" id="buyironcontract">
+					<h1>Iron Contracts</h1>
+					<h2>$<span id="IronContractMoney"></span>/10 Iron</h2>
+					<h2><span id="IronContract"></span> Iron Contracts | Cost: <span id="IronContractCost"></span> Iron</h2>
+				</button>
+			
+			<br /><br />
+			<hr>
+			<br /><br />
 			
 			<!-- Refined Iron -->
-				<button class="swHide" type="submit" id="buyirefinery"><h1>Iron Refineries</h1>
-				<h2>20 Iron -> 10 Refined Iron/1MWh per Second</h2>
-				<h2> <span id="IRefinery"></span> Iron Refineries | Cost: $<span id="IRefineryCost"></span>  </h2></button>
+				<button class="swHide" type="submit" id="buyirefinery">
+					<h1>Iron Refineries</h1>
+					<h2>20 Iron -> 10 Refined Iron/1MWh per Second</h2>
+					<h2><span id="IRefinery"></span> Iron Refineries | Cost: $<span id="IRefineryCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="upgradeirefinery"><h1> Combined Iron Refinery and Smeltery</h1>
-				<h2>40 Iron -> 30 Refined Iron/1MWh per Second</h2>
-				<h2> <span id="CombIRefinery"></span> Combined Iron Refineries | Cost: 1 Furnace + 1 Iron Refinery</h2></button>
+				<button class="swHide" type="submit" id="upgradeirefinery">
+					<h1>Combined Iron Refinery and Smeltery</h1>
+					<h2>40 Iron -> 30 Refined Iron/1MWh per Second</h2>
+					<h2><span id="CombIRefinery"></span> Combined Iron Refineries | Cost: 1 Furnace + 1 Iron Refinery</h2>
+				</button>
 
 			
-				<button class="swHide" type="submit" id="buyrefironcontract"><h1> Refined Iron Contracts</h1>
-				<h2>$<span id="RefIronContractMoney"></span>/10 Refined Iron</h2>
-				<h2> <span id="RefIronContract"></span> Refined Iron Contracts | Cost: <span id="RefIronContractCost"></span> Refined Iron </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buyrefironcontract">
+					<h1>Refined Iron Contracts</h1>
+					<h2>$<span id="RefIronContractMoney"></span>/10 Refined Iron</h2>
+					<h2><span id="RefIronContract"></span> Refined Iron Contracts | Cost: <span id="RefIronContractCost"></span> Refined Iron</h2>
+				</button>
+			
+			<br /><br />
+			<hr>
+			<br /><br />
 			
 			<!-- Motor -->
-				<button class="swHide" type="submit" id="buyMotorFact"><h1> Motor Factory</h1>
-				<h2>10 Refined Iron + 5 Steel -> 1 Motor/3MWh per Second</h2>
-				<h2> <span id="MotorFact"></span> Motor Factories | Cost: $<span id="MotorFactCost"></span>  </h2></button>
+				<button class="swHide" type="submit" id="buyMotorFact">
+					<h1>Motor Factory</h1>
+					<h2>10 Refined Iron + 5 Steel -> 1 Motor/3MWh per Second</h2>
+					<h2><span id="MotorFact"></span> Motor Factories | Cost: $<span id="MotorFactCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="UpgradeMotorFact"><h1> Automated Motor Factory</h1>
-				<h2>30 Refined Iron + 15 Steel -> 3 Motor/15MWh per Second</h2>
-				<h2> <span id="MotorFactArm"></span> Automated Motor Factories | Cost: 1 Motor Factory + 1 Automated Arm </h2></button>				
+				<button class="swHide" type="submit" id="UpgradeMotorFact">
+					<h1>Automated Motor Factory</h1>
+					<h2>30 Refined Iron + 15 Steel -> 3 Motor/15MWh per Second</h2>
+					<h2><span id="MotorFactArm"></span> Automated Motor Factories | Cost: 1 Motor Factory + 1 Automated Arm</h2>
+				</button>				
 			
-				<button class="swHide" type="submit" id="buyMotorcontract"><h1> Motor Contracts</h1>
-				<h2>$<span id="MotorContractMoney"></span>/Motor</h2>
-				<h2> <span id="MotorContract"></span> Motor Contracts | Cost: <span id="MotorContractCost"></span> Motor </h2></button>
+				<button class="swHide" type="submit" id="buyMotorcontract">
+					<h1>Motor Contracts</h1>
+					<h2>$<span id="MotorContractMoney"></span>/Motor</h2>
+					<h2><span id="MotorContract"></span> Motor Contracts | Cost: <span id="MotorContractCost"></span> Motor</h2>
+				</button>
 			
-			<br /><br /><hr><br /><br />
+			<br /><br />
+			<hr>
+			<br /><br />
 		
 			<!-- Car -->
-				<button class="swHide" type="submit" id="buyCarFact"><h1> Car Factory</h1>
-				<h2>2 Motors + 10 Mechanical Parts + 5 Electronics + 5 Glass -> 2 Cars/3MWh per Second</h2>
-				<h2> <span id="CarFact"></span> Car Factories | Cost: $<span id="CarFactCost"></span>  </h2></button>
+				<button class="swHide" type="submit" id="buyCarFact">
+					<h1>Car Factory</h1>
+					<h2>2 Motors + 10 Mechanical Parts + 5 Electronics + 5 Glass -> 2 Cars/3MWh per Second</h2>
+					<h2><span id="CarFact"></span> Car Factories | Cost: $<span id="CarFactCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="UpgradeCarFact"><h1> Automated Car Factory </h1>
-				<h2>6 Motors + 30 Mechanical Parts  + 15 Electronics + 15 Glass -> 6 Cars/15MWh per Second</h2>
-				<h2> <span id="CarFactArm"></span> Automated Car Factories | Cost: 1 Car Factory + 2 Automated Arm </h2></button>		
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="UpgradeCarFact">
+					<h1>Automated Car Factory</h1>
+					<h2>6 Motors + 30 Mechanical Parts  + 15 Electronics + 15 Glass -> 6 Cars/15MWh per Second</h2>
+					<h2><span id="CarFactArm"></span> Automated Car Factories | Cost: 1 Car Factory + 2 Automated Arm</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 		
 			<!-- Plane -->
-				<button class="swHide" type="submit" id="buyPlaneFact"><h1> Plane Factory</h1>
-				<h2>10 Motors + 70 Mechanical Parts + 50 Electronics + 20 Glass -> 1 Planes/15MWh per 30 Seconds</h2>
-				<h2> <span id="PlaneFact"></span> Plane Factories | Cost: $<span id="PlaneFactCost"></span>  + 1 Automated Car Factory</h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buyPlaneFact">
+					<h1>Plane Factory</h1>
+					<h2>10 Motors + 70 Mechanical Parts + 50 Electronics + 20 Glass -> 1 Planes/15MWh per 30 Seconds</h2>
+					<h2><span id="PlaneFact"></span> Plane Factories | Cost: $<span id="PlaneFactCost"></span> + 1 Automated Car Factory</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 		</div>
-
+		<!--------------------->
+		<!-- END OF IRON TAB -->
+		<!--------------------->
 		
 		
+		<!----------------------->
+		<!-- START OF COAL TAB -->
+		<!----------------------->
 		<div id="CoalTab" class="tabcontent">
 			<!-- Coal -->
-				<button class="swButtonCoal" type="submit" id="buyCoalmine"><h1> Coal Mines</h1>
-				<h2>3 Coal/Second</h2>
-				<h2> <span id="CoalMine"></span> Coal Mines | Cost: $<span id="CoalMineCost"></span>  </h2></button>
+				<button class="swButtonCoal" type="submit" id="buyCoalmine">
+					<h1>Coal Mines</h1>
+					<h2>3 Coal/Second</h2>
+					<h2><span id="CoalMine"></span> Coal Mines | Cost: $<span id="CoalMineCost"></span></h2>
+				</button>
 					
-				<button class="swHide" type="submit" id="upgradeCoalMine"><h1> Coal Drill</h1>
-				<h2>12 Coal/1 Gas per Second</h2>
-				<h2> <span id="CoalDrill"></span> Coal Drills | Costs: 1 Drill | 1 Coal Mine</h2></button>
+				<button class="swHide" type="submit" id="upgradeCoalMine">
+					<h1>Coal Drill</h1>
+					<h2>12 Coal/1 Gas per Second</h2>
+					<h2><span id="CoalDrill"></span> Coal Drills | Costs: 1 Drill | 1 Coal Mine</h2>
+				</button>
 
-				<button class="swButtonCoal" type="submit" id="buyCoalcontract"><h1> Coal Contracts</h1>
-				<h2>$<span id="CoalContractMoney"></span>/10 Coal</h2>
-				<h2> <span id="CoalContract"></span> Coal Contracts | Cost: <span id="CoalContractCost"></span> Coal </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swButtonCoal" type="submit" id="buyCoalcontract">
+					<h1>Coal Contracts</h1>
+					<h2>$<span id="CoalContractMoney"></span>/10 Coal</h2>
+					<h2><span id="CoalContract"></span> Coal Contracts | Cost: <span id="CoalContractCost"></span> Coal</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 	
 			<!-- Steel -->
-				<button class="swHide" type="submit" id="buysrefinery"><h1> Steel Refineries</h1>
-				<h2>10 Iron + 9 Coal -> 10 Steel/1MWh per Second</h2>
-				<h2> <span id="SRefinery"></span> Steel Refineries | Cost: $<span id="SRefineryCost"></span> </h2></button>
+				<button class="swHide" type="submit" id="buysrefinery">
+					<h1>Steel Refineries</h1>
+					<h2>10 Iron + 9 Coal -> 10 Steel/1MWh per Second</h2>
+					<h2><span id="SRefinery"></span> Steel Refineries | Cost: $<span id="SRefineryCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="upgradesrefinery"><h1> Combined Steel Refinery and Smeltery</h1>
-				<h2>30 Iron  + 27 Coal -> 30 Steel/1MWh per Second</h2>
-				<h2> <span id="CombSRefinery"></span> Combined Steel Refineries | Cost: 1 Furnace + 1 Steel Refinery</h2></button>
+				<button class="swHide" type="submit" id="upgradesrefinery">
+					<h1>Combined Steel Refinery and Smeltery</h1>
+					<h2>30 Iron  + 27 Coal -> 30 Steel/1MWh per Second</h2>
+					<h2><span id="CombSRefinery"></span> Combined Steel Refineries | Cost: 1 Furnace + 1 Steel Refinery</h2>
+				</button>
 
-				<button class="swHide" type="submit" id="buysteelcontract"><h1> Steel Contracts</h1>
-				<h2>$<span id="SteelContractMoney"></span>/10 Steel</h2>
-				<h2> <span id="SteelContract"></span> Steel Contracts | Cost: <span id="SteelContractCost"></span> Steel </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buysteelcontract">
+					<h1>Steel Contracts</h1>
+					<h2>$<span id="SteelContractMoney"></span>/10 Steel</h2>
+					<h2><span id="SteelContract"></span> Steel Contracts | Cost: <span id="SteelContractCost"></span> Steel</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 			<!-- Mechanical Parts -->
-				<button class="swHide" type="submit" id="buyMechPartFact"><h1> Mechanical Part Factory</h1>
-				<h2>5 Steel + 5 Refined Copper -> 4 Mechanical Parts/3MWh per Second</h2>
-				<h2> <span id="MechPartFact"></span> Mechanical Part Factories | Cost: $<span id="MechPartFactCost"></span>  </h2></button>
+				<button class="swHide" type="submit" id="buyMechPartFact">
+					<h1>Mechanical Part Factory</h1>
+					<h2>5 Steel + 5 Refined Copper -> 4 Mechanical Parts/3MWh per Second</h2>
+					<h2><span id="MechPartFact"></span> Mechanical Part Factories | Cost: $<span id="MechPartFactCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="UpgradeMechPartFact"><h1> Automated Mechanical Part Factory</h1>
-				<h2>15 Steel + 15 Refined Copper -> 12 Mechanical Parts/15MWh per Second</h2>
-				<h2> <span id="MechPartFactArm"></span> Mechanical Part Factories | Cost: 1 Mechanical Part Factory + 1 Automated Arm </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="UpgradeMechPartFact">
+					<h1>Automated Mechanical Part Factory</h1>
+					<h2>15 Steel + 15 Refined Copper -> 12 Mechanical Parts/15MWh per Second</h2>
+					<h2><span id="MechPartFactArm"></span> Mechanical Part Factories | Cost: 1 Mechanical Part Factory + 1 Automated Arm</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 			<!-- AC -->
-				<button class="swHide" type="submit" id="buyACFact"><h1> A/C Unit Factory</h1>
-				<h2>10 Mechanical Parts + 2 Motors + 1 Spool of Wire -> 1 A/C Unit/3MWh per 2 Second</h2>
-				<h2> <span id="ACFact"></span> A/C Unit Factories | Cost: $<span id="ACFactCost"></span>  </h2></button>
+				<button class="swHide" type="submit" id="buyACFact">
+					<h1>A/C Unit Factory</h1>
+					<h2>10 Mechanical Parts + 2 Motors + 1 Spool of Wire -> 1 A/C Unit/3MWh per 2 Second</h2>
+					<h2><span id="ACFact"></span> A/C Unit Factories | Cost: $<span id="ACFactCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="UpgradeACFact"><h1> Automated A/C Unit Factory</h1>
-				<h2>30 Mechanical Parts + 6 Motors + 3 Spool of Wire -> 12 A/C Units/15MWh per Second</h2>
-				<h2> <span id="ACFactArm"></span> Automated A/C Unit Factories | Cost: 1 A/C Unit Factory + 1 Automated Arm </h2></button>
+				<button class="swHide" type="submit" id="UpgradeACFact">
+					<h1>Automated A/C Unit Factory</h1>
+					<h2>30 Mechanical Parts + 6 Motors + 3 Spool of Wire -> 12 A/C Units/15MWh per Second</h2>
+					<h2><span id="ACFactArm"></span> Automated A/C Unit Factories | Cost: 1 A/C Unit Factory + 1 Automated Arm</h2>
+				</button>
 					
-					
-				<button class="swHide" type="submit" id="buyACcontract"><h1> A/C Contracts</h1>
-				<h2>$<span id="ACContractMoney"></span>/A/C Unit</h2>
-				<h2> <span id="ACContract"></span> A/C Unit Contracts | Cost: <span id="ACContractCost"></span> A/C Units </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buyACcontract">
+					<h1>A/C Contracts</h1>
+					<h2>$<span id="ACContractMoney"></span>/A/C Unit</h2>
+					<h2><span id="ACContract"></span> A/C Unit Contracts | Cost: <span id="ACContractCost"></span> A/C Units</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 		
 			<!-- Cons Parts -->
-				<button class="swHide" type="submit" id="buyConsPartFact"><h1> Construction Part Factory</h1>
-				<h2>30 Steel + 20 Refined Copper -> 5 Construction Parts/3MWh per Second</h2>
-				<h2> <span id="ConsPartFact"></span> Construction Part Factories | Cost: $<span id="ConsPartFactCost"></span>  + 1 Automated Mechanical Part Factory</h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buyConsPartFact">
+					<h1>Construction Part Factory</h1>
+					<h2>30 Steel + 20 Refined Copper -> 5 Construction Parts/3MWh per Second</h2>
+					<h2><span id="ConsPartFact"></span> Construction Part Factories | Cost: $<span id="ConsPartFactCost"></span> + 1 Automated Mechanical Part Factory</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
 		</div>
+		<!--------------------->
+		<!-- END OF COAL TAB -->
+		<!--------------------->
 
 		
+		<!------------------------->
+		<!-- START OF COPPER TAB -->
+		<!------------------------->
 		<div id="CopperTab" class="tabcontent">
 			<!-- Copper -->
-				<button class="swButtonCopper" type="submit" id="buyCoppermine"><h1> Copper Mines</h1>
-				<h2>10 Copper/Second</h2>
-				<h2> <span id="CopperMine"></span> Copper Mines | Cost: $<span id="CopperMineCost"></span>  </h2></button>
+				<button class="swButtonCopper" type="submit" id="buyCoppermine">
+					<h1>Copper Mines</h1>
+					<h2>10 Copper/Second</h2>
+					<h2><span id="CopperMine"></span> Copper Mines | Cost: $<span id="CopperMineCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="upgradeCopperMine"><h1> Copper Drill</h1>
-				<h2>40 Copper/1 Gas per Second</h2>
-				<h2> <span id="CopperDrill"></span> Copper Drills | Costs: 1 Drill | 1 Copper Mine</h2></button>
+				<button class="swHide" type="submit" id="upgradeCopperMine">
+					<h1>Copper Drill</h1>
+					<h2>40 Copper/1 Gas per Second</h2>
+					<h2><span id="CopperDrill"></span> Copper Drills | Costs: 1 Drill | 1 Copper Mine</h2>
+				</button>
 
-				<button class="swButtonCopper" type="submit" id="buyCoppercontract"><h1> Copper Contracts</h1>
-				<h2>$<span id="CopperContractMoney"></span>/10 Copper</h2>
-				<h2> <span id="CopperContract"></span> Copper Contracts | Cost: <span id="CopperContractCost"></span> Copper </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swButtonCopper" type="submit" id="buyCoppercontract">
+					<h1>Copper Contracts</h1>
+					<h2>$<span id="CopperContractMoney"></span>/10 Copper</h2>
+					<h2><span id="CopperContract"></span> Copper Contracts | Cost: <span id="CopperContractCost"></span> Copper</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
 			<!-- Refined Copper -->
-				<button class="swHide" type="submit" id="buyCRefinery"><h1> Copper Refineries</h1>
-				<h2>15 Copper -> 10 Refined Copper/1MWh per Second</h2>
-				<h2> <span id="CRefinery"></span> Copper Refineries | Cost: $<span id="CRefineryCost"></span>  </h2></button>
+				<button class="swHide" type="submit" id="buyCRefinery">
+					<h1>Copper Refineries</h1>
+					<h2>15 Copper -> 10 Refined Copper/1MWh per Second</h2>
+					<h2><span id="CRefinery"></span> Copper Refineries | Cost: $<span id="CRefineryCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="upgradecrefinery"><h1> Combined Copper Refinery and Smeltery</h1>
-				<h2>30 Copper -> 30 Refined Copper/1MWh per Second</h2>
-				<h2> <span id="CombCRefinery"></span> Combined Copper Refineries | Cost: 1 Furnace + 1 Copper Refinery</h2></button>
+				<button class="swHide" type="submit" id="upgradecrefinery">
+					<h1>Combined Copper Refinery and Smeltery</h1>
+					<h2>30 Copper -> 30 Refined Copper/1MWh per Second</h2>
+					<h2><span id="CombCRefinery"></span> Combined Copper Refineries | Cost: 1 Furnace + 1 Copper Refinery</h2>
+				</button>
 
-				<button class="swHide" type="submit" id="buyrefCoppercontract"><h1> Refined Copper Contracts</h1>
-				<h2>$<span id="RefCopperContractMoney"></span>/10 Refined Copper</h2>
-				<h2> <span id="RefCopperContract"></span> Refined Copper Contracts | Cost: <span id="RefCopperContractCost"></span> Refined Copper </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buyrefCoppercontract">
+					<h1>Refined Copper Contracts</h1>
+					<h2>$<span id="RefCopperContractMoney"></span>/10 Refined Copper</h2>
+					<h2><span id="RefCopperContract"></span> Refined Copper Contracts | Cost: <span id="RefCopperContractCost"></span> Refined Copper</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 
 			<!-- Spooler -->
-				<button class="swHide" type="submit" id="buySpooler"><h1> Spoolers</h1>
-				<h2>50 Refined Copper -> 10 Spools of Wire/3MWh per Second</h2>
-				<h2> <span id="Spooler"></span> Spoolers | Cost: $<span id="SpoolerCost"></span>  </h2></button>
+				<button class="swHide" type="submit" id="buySpooler">
+					<h1>Spoolers</h1>
+					<h2>50 Refined Copper -> 10 Spools of Wire/3MWh per Second</h2>
+					<h2><span id="Spooler"></span> Spoolers | Cost: $<span id="SpoolerCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="UpgradeSpooler"><h1> Automated Spooler</h1>
-				<h2>150 Refined Copper -> 30 Spoolers/15MWh per Second</h2>
-				<h2> <span id="SpoolerArm"></span> Automated Spooler Factories | Cost: 1 Spooler + 1 Automated Arm </h2></button>
+				<button class="swHide" type="submit" id="UpgradeSpooler">
+					<h1>Automated Spooler</h1>
+					<h2>150 Refined Copper -> 30 Spoolers/15MWh per Second</h2>
+					<h2><span id="SpoolerArm"></span> Automated Spooler Factories | Cost: 1 Spooler + 1 Automated Arm</h2>
+				</button>
 
-				<button class="swHide" type="submit" id="buySpoolcontract"><h1> Spool Contracts</h1>
-				<h2>$<span id="SpoolContractMoney"></span>/10 Spools</h2>
-				<h2> <span id="SpoolContract"></span> Spool Contracts | Cost: <span id="SpoolContractCost"></span> Spools </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buySpoolcontract">
+					<h1>Spool Contracts</h1>
+					<h2>$<span id="SpoolContractMoney"></span>/10 Spools</h2>
+					<h2><span id="SpoolContract"></span> Spool Contracts | Cost: <span id="SpoolContractCost"></span> Spools</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
 			<!-- ElecFact -->
-				<button class="swHide" type="submit" id="buyElecFact"><h1> Electronic Factories</h1>
-				<h2>2 Spools + 10 Plastic -> 5 Electronics/3MWh per Second</h2>
-				<h2> <span id="ElecFact"></span> Electronic Factories | Cost: $<span id="ElecFactCost"></span>  </h2></button>
+				<button class="swHide" type="submit" id="buyElecFact">
+					<h1>Electronic Factories</h1>
+					<h2>2 Spools + 10 Plastic -> 5 Electronics/3MWh per Second</h2>
+					<h2><span id="ElecFact"></span> Electronic Factories | Cost: $<span id="ElecFactCost"></span></h2>
+				</button>
 
-				<button class="swHide" type="submit" id="UpgradeElecFact"><h1> Automated Electronic Factory</h1>
-				<h2>6 Spools + 30 Plastic -> 15 Electronics/15MWh per Second</h2>
-				<h2> <span id="ElecFactArm"></span> Automated Electronic Factories | Cost: 1 Electronic Factory + 1 Automated Arm </h2></button>
+				<button class="swHide" type="submit" id="UpgradeElecFact">
+					<h1>Automated Electronic Factory</h1>
+					<h2>6 Spools + 30 Plastic -> 15 Electronics/15MWh per Second</h2>
+					<h2><span id="ElecFactArm"></span> Automated Electronic Factories | Cost: 1 Electronic Factory + 1 Automated Arm</h2>
+				</button>
 
-				<button class="swHide" type="submit" id="buyEleccontract"><h1> Electronic Contracts</h1>
-				<h2>$<span id="ElecContractMoney"></span>/10 Electronics</h2>
-				<h2> <span id="ElecContract"></span> Electronic Contracts | Cost: <span id="ElecContractCost"></span> Electronics </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buyEleccontract">
+					<h1>Electronic Contracts</h1>
+					<h2>$<span id="ElecContractMoney"></span>/10 Electronics</h2>
+					<h2> <span id="ElecContract"></span> Electronic Contracts | Cost: <span id="ElecContractCost"></span> Electronics</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 		
 			<!-- AdvElecFact -->
-				<button class="swHide" type="submit" id="buyAdvElecFact"><h1> Advanced Electronic Factories</h1>
-				<h2>4 Spools + 15 Plastic + 10 Silicon -> 10 Advanced Electronics/3MWh per Second</h2>
-				<h2> <span id="AdvElecFact"></span> Advanced Electronic Factories | Cost: $<span id="AdvElecFactCost"></span>  + 1 Electronic Factory</h2></button>
+				<button class="swHide" type="submit" id="buyAdvElecFact">
+					<h1>Advanced Electronic Factories</h1>
+					<h2>4 Spools + 15 Plastic + 10 Silicon -> 10 Advanced Electronics/3MWh per Second</h2>
+					<h2><span id="AdvElecFact"></span> Advanced Electronic Factories | Cost: $<span id="AdvElecFactCost"></span> + 1 Electronic Factory</h2>
+				</button>
 
-				<button class="swHide" type="submit" id="buyAdvEleccontract"><h1> Advanced Electronic Contracts</h1>
-				<h2>$<span id="AdvElecContractMoney"></span>/10 Advanced Electronics</h2>
-				<h2> <span id="AdvElecContract"></span> Advanced Electronic Contracts | Cost: <span id="AdvElecContractCost"></span> Advanced Electronics </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swHide" type="submit" id="buyAdvEleccontract">
+					<h1>Advanced Electronic Contracts</h1>
+					<h2>$<span id="AdvElecContractMoney"></span>/10 Advanced Electronics</h2>
+					<h2> <span id="AdvElecContract"></span> Advanced Electronic Contracts | Cost: <span id="AdvElecContractCost"></span> Advanced Electronics</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 		</div>
-
+		<!----------------------->
+		<!-- END OF COPPER TAB -->
+		<!----------------------->
 		
+		
+		<!---------------------->
+		<!-- START OF OIL TAB -->
+		<!---------------------->
 		<div id="OilTab" class="tabcontent">
 			<span STYLE="color: red; font-size: 26pt" id="GenOilStatus2"></span>
 			<!-- Oil -->
-				<button class="swButtonCoal" type="submit" id="buyOilmine"><h1> Oil Well</h1>
-				<h2>10 Oil/Second</h2>
-				<h2> <span id="OilMine"></span> Oil Well | Cost: $<span id="OilMineCost"></span>  </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swButtonCoal" type="submit" id="buyOilmine">
+					<h1>Oil Well</h1>
+					<h2>10 Oil/Second</h2>
+					<h2><span id="OilMine"></span> Oil Well | Cost: $<span id="OilMineCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 			<!-- Gas -->
-				<button class="swButtonGas" type="submit" id="buyGRefinery"><h1> Gas Refineries</h1>
-				<h2>8 Oil -> 4 Gas/1MWh per Second</h2>
-				<h2> <span id="GRefinery"></span> Gas Refineries | Cost: $<span id="GRefineryCost"></span>  </h2></button>
+				<button class="swButtonGas" type="submit" id="buyGRefinery">
+					<h1>Gas Refineries</h1>
+					<h2>8 Oil -> 4 Gas/1MWh per Second</h2>
+					<h2><span id="GRefinery"></span> Gas Refineries | Cost: $<span id="GRefineryCost"></span></h2>
+				</button>
 					
-				<button class="swButtonGas" type="submit" id="buyGascontract"><h1> Gas Contracts</h1>
-				<h2>$<span id="GasContractMoney"></span>/10 Gas</h2>
-				<h2> <span id="GasContract"></span> Gas Contracts | Cost: <span id="GasContractCost"></span> Gas </h2></button>
-				<br /><br />
+				<button class="swButtonGas" type="submit" id="buyGascontract">
+					<h1>Gas Contracts</h1>
+					<h2>$<span id="GasContractMoney"></span>/10 Gas</h2>
+					<h2><span id="GasContract"></span> Gas Contracts | Cost: <span id="GasContractCost"></span> Gas</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 			<!-- Plastic -->
-				<button class="swButtonPlastic" type="submit" id="buyPRefinery"><h1> Plastic Refineries</h1>
-				<h2>12 Oil -> 4 Plastic/1MWh per Second</h2>
-				<h2> <span id="PRefinery"></span> Plastic Refineries | Cost: $<span id="PRefineryCost"></span>  </h2></button>
+				<button class="swButtonPlastic" type="submit" id="buyPRefinery">
+					<h1>Plastic Refineries</h1>
+					<h2>12 Oil -> 4 Plastic/1MWh per Second</h2>
+					<h2><span id="PRefinery"></span> Plastic Refineries | Cost: $<span id="PRefineryCost"></span></h2>
+				</button>
 					
-				<button class="swButtonPlastic" type="submit" id="buyPlasticcontract"><h1> Plastic Contracts</h1>
-				<h2>$<span id="PlasticContractMoney"></span>/10 Plastic</h2>
-				<h2> <span id="PlasticContract"></span> Plastic Contracts | Cost: <span id="PlasticContractCost"></span> Plastic </h2></button>
+				<button class="swButtonPlastic" type="submit" id="buyPlasticcontract">
+					<h1>Plastic Contracts</h1>
+					<h2>$<span id="PlasticContractMoney"></span>/10 Plastic</h2>
+					<h2><span id="PlasticContract"></span> Plastic Contracts | Cost: <span id="PlasticContractCost"></span> Plastic</h2>
+				</button>
 
-			<br /><br /><hr><br /><br />
+			<br /><br />
+			<hr>
+			<br /><br />
 			
 		</div>
+		<!-------------------->
+		<!-- END OF OIL TAB -->
+		<!-------------------->
 
 		
+		<!------------------------>
+		<!-- START OF GLASS TAB -->
+		<!------------------------>
 		<div id="GlassTab" class="tabcontent">
 			<span STYLE="color: red; font-size: 26pt" id="GenGlassStatus2"></span>
 			<!-- Sand -->
-				<button class="swButtonSand" type="submit" id="buyShifter"><h1> Sifter</h1>
-				<h2>5 Sand/3MWh per Second</h2>
-				<h2> <span id="Shifter"></span> Shifters | Cost: <span id="ShifterMotorCost"></span> Motor + <span id="ShifterMechCost"></span> Mechanical Parts </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swButtonSand" type="submit" id="buyShifter">
+					<h1>Sifter</h1>
+					<h2>5 Sand/3MWh per Second</h2>
+					<h2><span id="Shifter"></span> Shifters | Cost: <span id="ShifterMotorCost"></span> Motor + <span id="ShifterMechCost"></span> Mechanical Parts</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
 			<!-- Glass -->
-				<button class="swButtonGlass" type="submit" id="buyGlassFurnace"><h1> Glass Furnaces</h1>
-				<h2>15 Sand -> 5 Glass/Second</h2>
-				<h2> <span id="GlassFurnace"></span> Glass Furnaces | Cost: 1 Furnace </h2></button>
+				<button class="swButtonGlass" type="submit" id="buyGlassFurnace">
+					<h1>Glass Furnaces</h1>
+					<h2>15 Sand -> 5 Glass/Second</h2>
+					<h2><span id="GlassFurnace"></span> Glass Furnaces | Cost: 1 Furnace</h2>
+				</button>
 			
-				<button class="swButtonGlass" type="submit" id="buyGlasscontract"><h1> Glass Contracts</h1>
-				<h2>$<span id="GlassContractMoney"></span>/10 Glass</h2>
-				<h2> <span id="GlassContract"></span> Glass Contracts | Cost: <span id="GlassContractCost"></span> Glass </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swButtonGlass" type="submit" id="buyGlasscontract">
+					<h1>Glass Contracts</h1>
+					<h2>$<span id="GlassContractMoney"></span>/10 Glass</h2>
+					<h2><span id="GlassContract"></span> Glass Contracts | Cost: <span id="GlassContractCost"></span> Glass</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
 			<!-- LightbulbFact -->
-				<button class="swButtonGlass" type="submit" id="buyLightbulbFact"><h1> Lightbulb Factories</h1>
-				<h2>1 Spool + 10 Glass -> 10 Lightbulbs/3MWh per Second</h2>
-				<h2> <span id="LightbulbFact"></span> Lightbulb Factories | Cost: $<span id="LightbulbFactCost"></span>  </h2></button>
+				<button class="swButtonGlass" type="submit" id="buyLightbulbFact">
+					<h1>Lightbulb Factories</h1>
+					<h2>1 Spool + 10 Glass -> 10 Lightbulbs/3MWh per Second</h2>
+					<h2><span id="LightbulbFact"></span> Lightbulb Factories | Cost: $<span id="LightbulbFactCost"></span></h2>
+				</button>
 
-				<button class="swButtonGlass" type="submit" id="UpgradeLightbulbFact"><h1> Automated Lightbulb Factory</h1>
-				<h2>3 Spools + 30 Glass -> 30 Lightbulbs/15MWh per Second</h2>
-				<h2> <span id="LightbulbFactArm"></span> Lightbulb Factories | Cost: 1 Lightbulb Factory + 1 Automated Arm </h2></button>
+				<button class="swButtonGlass" type="submit" id="UpgradeLightbulbFact">
+					<h1>Automated Lightbulb Factory</h1>
+					<h2>3 Spools + 30 Glass -> 30 Lightbulbs/15MWh per Second</h2>
+					<h2><span id="LightbulbFactArm"></span> Lightbulb Factories | Cost: 1 Lightbulb Factory + 1 Automated Arm</h2>
+				</button>
 
-				<button class="swButtonGlass" type="submit" id="buyLightbulbcontract"><h1> Lightbulb Contracts</h1>
-				<h2>$<span id="LightbulbContractMoney"></span>/10 Lightbulbs</h2>
-				<h2> <span id="LightbulbContract"></span> Lightbulb Contracts | Cost: <span id="LightbulbContractCost"></span> Lightbulbs </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swButtonGlass" type="submit" id="buyLightbulbcontract">
+					<h1>Lightbulb Contracts</h1>
+					<h2>$<span id="LightbulbContractMoney"></span>/10 Lightbulbs</h2>
+					<h2><span id="LightbulbContract"></span> Lightbulb Contracts | Cost: <span id="LightbulbContractCost"></span> Lightbulbs</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 		
 			<!-- Refined Silicon -->
-				<button class="swButtonGlass" type="submit" id="buySiRefinery"><h1> Silicon Refineries</h1>
-				<h2>20 Sand -> 5 Refined Silicon/1MWh per Second</h2>
-				<h2> <span id="SiRefinery"></span> Silicon Refineries | Cost: $<span id="SiRefineryCost"></span>  </h2></button>
-			<br /><br /><hr><br /><br />
+				<button class="swButtonGlass" type="submit" id="buySiRefinery">
+					<h1>Silicon Refineries</h1>
+					<h2>20 Sand -> 5 Refined Silicon/1MWh per Second</h2>
+					<h2><span id="SiRefinery"></span> Silicon Refineries | Cost: $<span id="SiRefineryCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 		</div>
-
+		<!---------------------->
+		<!-- END OF GLASS TAB -->
+		<!---------------------->
 		
+		
+		<!--------------------------->
+		<!-- START OF WORKSHOP TAB -->
+		<!--------------------------->
 		<div id="WorkshopTab" class="tabcontent">
 			<span STYLE="color: red; font-size: 26pt" id="WorkshopStatus2"></span>
-			<button class="swButtonIron" type="submit" id="builddrill"><h1> Drill:</h1>
-			<h2> <span id="Drill"></span> Drills | Cost: <span id="DrillMotorCost"></span> Motor + <span id="DrillMechCost"></span> Mechanical Parts </h2></button>
-			<br /><br /><hr><br /><br />
 			
-			<button class="swButtonIron" type="submit" id="buildFurnace"><h1> Furnace:</h1>
-			<h2> <span id="Furnace"></span> Furnaces | Cost: <span id="FurnaceCost"></span> Refined Iron</h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Drill -->
+				<button class="swButtonIron" type="submit" id="builddrill">
+					<h1>Drill:</h1>
+					<h2><span id="Drill"></span> Drills | Cost: <span id="DrillMotorCost"></span> Motor + <span id="DrillMechCost"></span> Mechanical Parts</h2>
+				</button>
 			
-			<button class="swButtonIron" type="submit" id="buildarm"><h1> Automated Factory Arm:</h1>
-			<h2> <span id="Arm"></span> Automated Arms | Cost: <span id="ArmMotorCost"></span> Motor + <span id="ArmMechCost"></span> Mechanical Parts  + <span id="ArmElecCost"></span> Electronics </h2></button>
-			<br /><br /><hr><br /><br />
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonGlass" type="submit" id="buildSolarArray"><h1> Solar Array:</h1>
-			<h2> <span id="SolarArray"></span> Solar Array | Cost: <span id="SolarArrayElecCost"></span> Electronics + <span id="SolarArrayGlassCost"></span> Glass </h2> </button>
-			<br /><br /><hr><br /><br />
+			<!-- Furnace -->
+				<button class="swButtonIron" type="submit" id="buildFurnace">
+					<h1>Furnace:</h1>
+					<h2><span id="Furnace"></span> Furnaces | Cost: <span id="FurnaceCost"></span> Refined Iron</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
+			<!-- Fact Arm -->
+				<button class="swButtonIron" type="submit" id="buildarm">
+					<h1>Automated Factory Arm:</h1>
+					<h2><span id="Arm"></span> Automated Arms | Cost: <span id="ArmMotorCost"></span> Motor + <span id="ArmMechCost"></span> Mechanical Parts + <span id="ArmElecCost"></span> Electronics</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
+			<!-- Solar Array -->
+				<button class="swButtonGlass" type="submit" id="buildSolarArray">
+					<h1>Solar Array:</h1>
+					<h2><span id="SolarArray"></span> Solar Array | Cost: <span id="SolarArrayElecCost"></span> Electronics + <span id="SolarArrayGlassCost"></span> Glass</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 		</div>
+		<!------------------------->
+		<!-- END OF WORKSHOP TAB -->
+		<!------------------------->
 		
 		
+		<!------------------------>
+		<!-- START OF POWER TAB -->
+		<!------------------------>
 		<div id="PowerTab" class="tabcontent">
 			<span STYLE="color: red; font-size: 26pt" id="GenPowerStatus2"></span>
 			
-			<button class="swButtonWood" title="These babies stretch for miles!" type="submit" id="buyPowerLine"><h1> Power Lines</h1>
-			<h2>Increases the Cost of Power</h2>
-			<h2> <span id="PowerLine"></span> Power Lines | Cost: $<span id="PowerLineCost"></span></h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Power Lines -->
+				<button class="swButtonWood" title="These babies stretch for miles!" type="submit" id="buyPowerLine">
+					<h1>Power Lines</h1>
+					<h2>Increases the Cost of Power</h2>
+					<h2><span id="PowerLine"></span> Power Lines | Cost: $<span id="PowerLineCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonCoal" title="Harness the power of carbon!" type="submit" id="buyCoalPlant"><h1> Coal Plant</h1>
-			<h2>Produces 40 MWh/30 Coal per Second</h2>
-			<h2> <span id="CoalPlant"></span> Coal Plants | Cost: 1 Empty Lot + $<span id="CoalPlantCost"></span></h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Power: Coal -->
+				<button class="swButtonCoal" title="Harness the power of carbon!" type="submit" id="buyCoalPlant">
+					<h1>Coal Plant</h1>
+					<h2>Produces 40 MWh/30 Coal per Second</h2>
+					<h2><span id="CoalPlant"></span> Coal Plants | Cost: 1 Empty Lot + $<span id="CoalPlantCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonGlass" title="Renewable Engery!" type="submit" id="buildSolarPlant"><h1> Solar Plant</h1>
-			<h2>Produces <span id="SolarPlantOutput"></span> MWh/Second</h2>
-			<h2> <span id="SolarPlant"></span> Solar Plant | Cost: 1 Empty Lot + <span id="SolarPlantCost"></span> Solar Arrays </h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Power: Solar -->
+				<button class="swButtonGlass" title="Renewable Engery!" type="submit" id="buildSolarPlant">
+					<h1>Solar Plant</h1>
+					<h2>Produces <span id="SolarPlantOutput"></span> MWh/Second</h2>
+					<h2><span id="SolarPlant"></span> Solar Plant | Cost: 1 Empty Lot + <span id="SolarPlantCost"></span> Solar Arrays</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonElec" title="We don't know how it works, but the regulations make it expensive" type="submit" id="buyNuclearPlant"><h1> Nuclear Plant</h1>
-			<h2>Produces 125 MWh/Second</h2>
-			<h2> <span id="NuclearPlant"></span> Nuclear Plants | Cost: 2 Empty Lots + $<span id="NuclearPlantCost"></span></h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Power: Nuclear -->
+				<button class="swButtonElec" title="We don't know how it works, but the regulations make it expensive" type="submit" id="buyNuclearPlant">
+					<h1>Nuclear Plant</h1>
+					<h2>Produces 125 MWh/Second</h2>
+					<h2><span id="NuclearPlant"></span> Nuclear Plants | Cost: 2 Empty Lots + $<span id="NuclearPlantCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 		</div>
+		<!---------------------->
+		<!-- END OF POWER TAB -->
+		<!---------------------->
 		
 		
+		<!--------------------------->
+		<!-- START OF BUILDING TAB -->
+		<!--------------------------->
 		<div id="BuildingTab" class="tabcontent">
 			<span STYLE="color: red; font-size: 26pt" id="GenBuildingStatus2"></span>
 			
-			<button class="swButtonWood" type="submit" id="buyLand"><h1> Land</h1>
-			<h2> <span id="Land"></span> Empty Lots | Cost: $<span id="LandCost"></span></h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Land -->
+				<button class="swButtonWood" type="submit" id="buyLand">
+					<h1>Land</h1>
+					<h2><span id="Land"></span> Empty Lots | Cost: $<span id="LandCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonIron" title="We call it personal for tax reasons, we hire people to build the stuff." type="submit" id="buyWorkshop"><h1> Personal Workshop</h1>
-			<h2>Opens Workshop Tab | Reduces Workshop Costs by 15% | 2 MWh/Second</h2>
-			<h2> <span id="Workshop"></span> Workshops | Cost: 1 Empty Lot + $<span id="WorkshopCost"></span></h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Workshop -->
+				<button class="swButtonIron" title="We call it personal for tax reasons, we hire people to build the stuff." type="submit" id="buyWorkshop">
+					<h1>Personal Workshop</h1>
+					<h2>Opens Workshop Tab | Reduces Workshop Costs by 15% | 2 MWh/Second</h2>
+					<h2><span id="Workshop"></span> Workshops | Cost: 1 Empty Lot + $<span id="WorkshopCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonIron" title="Selling is just politics, and all politicians need an office." type="submit" id="buyOffice"><h1> Office</h1>
-			<h2>Increases Contract Prices | Warning: Increase Anti-Contract Prices | 2 MWh/Second</h2>
-			<h2> <span id="Office"></span> Offices | Cost: 1 Empty Lot + $<span id="OfficeCost"></span></h2></button>
-			<br /><br /><hr><br /><br />
-			
+			<!-- Office -->
+				<button class="swButtonIron" title="Selling is just politics, and all politicians need an office." type="submit" id="buyOffice">
+					<h1>Office</h1>
+					<h2>Increases Contract Prices | Warning: Increase Anti-Contract Prices | 2 MWh/Second</h2>
+					<h2><span id="Office"></span> Offices | Cost: 1 Empty Lot + $<span id="OfficeCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 
-		
 		</div>
+		<!------------------------->
+		<!-- END OF BUILDING TAB -->
+		<!------------------------->
 		
 		
 		
+		<!-- UNUSED -->
 		<div id="LandTab" class="tabcontent">
 		</div>
 		
-	
+		
+		<!----------------------->
+		<!-- START OF CARS TAB -->
+		<!----------------------->
 		<div id="CarsTab" class="tabcontent">
-		
-			<button class="swButtonIron" title="Screw Wholesale! Lets get into retail!" type="submit" id="buyDealership"><h1> Car Dealership</h1>
-			<h2>$<span id="CarDealerMoney"></span>/10 Cars | 2 MWh/Second</h2>
-			<h2> <span id="Dealership"></span> Dealerships | Cost: 1 Empty Lot + $<span id="DealershipCost"></span> + <span id="CarContractCost2"></span> Cars</h2></button>
-			<br /><br /><hr><br /><br />
+			<span class="swMain" STYLE="color: red; font-size: 26pt" id="DealershipStatus2"></span>
 			
-			<span class="swMain" STYLE="color: red; font-size: 26pt" id="DealershipStatus2"></span><br />
+			<!-- Dealership -->
+				<button class="swButtonIron" title="Screw Wholesale! Lets get into retail!" type="submit" id="buyDealership">
+					<h1>Car Dealership</h1>
+					<h2>$<span id="CarDealerMoney"></span>/10 Cars | 2 MWh/Second</h2>
+					<h2><span id="Dealership"></span> Dealerships | Cost: 1 Empty Lot + $<span id="DealershipCost"></span> + <span id="CarContractCost2"></span> Cars</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonRoad" title="Might as well use all this rock from the mining." type="submit" id="buyRoad"><h1> Road</h1>
-			<h2>Increases Dealership Prices</h2>
-			<h2> <span id="Road"></span> Roads | Cost: 5 Empty Lots </h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Roads -->
+				<button class="swButtonRoad" title="Might as well use all this rock from the mining." type="submit" id="buyRoad">
+					<h1>Road</h1>
+					<h2>Increases Dealership Prices</h2>
+					<h2><span id="Road"></span> Roads | Cost: 5 Empty Lots</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonGlass" title="Should we spend our land on Roads or Solar Plants? Why not both?" type="submit" id="buySolarRoad"><h1> Solar Road</h1>
-			<h2>Increases Dealership Prices | Produces 10 MWh/Second</h2>
-			<h2> <span id="SolarRoad"></span> Solar Roads | Cost: 3 Empty Lots + <span id="SolarRoadCost"></span> Solar Arrays</h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Solar Roads -->
+				<button class="swButtonGlass" title="Should we spend our land on Roads or Solar Plants? Why not both?" type="submit" id="buySolarRoad">
+					<h1>Solar Road</h1>
+					<h2>Increases Dealership Prices | Produces 10 MWh/Second</h2>
+					<h2><span id="SolarRoad"></span> Solar Roads | Cost: 3 Empty Lots + <span id="SolarRoadCost"></span> Solar Arrays</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-		
 		</div>
+		<!--------------------->
+		<!-- END OF CARS TAB -->
+		<!--------------------->
 		
-	
+		
+		<!------------------------->
+		<!-- START OF PLANES TAB -->
+		<!------------------------->
 		<div id="PlanesTab" class="tabcontent">
-		
-			<button class="swButtonIron" title="Comes with a free TSA team!" type="submit" id="buyAirport"><h1> Airport</h1>
-			<h2>Provides space for 30 planes | Each Plane makes $<span id="AirportMoney"></span> | 30 MWh/Second</h2>
-			<h2> <span id="AirportStatus"></span> </h2></button>
-			<br /><br /><hr><br /><br />
+			<span class="swMain" STYLE="color: red; font-size: 26pt" id="AirportStatus2"></span>
 			
-			<span class="swMain" STYLE="color: red; font-size: 26pt" id="AirportStatus2"></span><br />
-			<button class="swButtonIron" title="Its like a big metal birdhouse for a big metal bird." type="submit" id="buyHanger"><h1> Hanger</h1>
-			<h2>Houses 5 Planes</h2>
-			<h2> <span id="Hanger"></span> Hangers | Cost: 2 Empty Lots + $<span id="HangerCost"></span> + 1 Gilded Airport Staff</h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Airports -->
+				<button class="swButtonIron" title="Comes with a free TSA team!" type="submit" id="buyAirport">
+					<h1>Airport</h1>
+					<h2>Provides space for 30 planes | Each Plane makes $<span id="AirportMoney"></span> | 30 MWh/Second</h2>
+					<h2><span id="AirportStatus"></span></h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonIron" title="Faster loading, more money! Plus we can just store a plane at the terminal." type="submit" id="buyTerminal"><h1> Terminal</h1>
-			<h2>Increases Base Plane Ticket | Houses 1 Plane</h2>
-			<h2> <span id="Terminal"></span> Terminals | Cost: $<span id="TerminalCost"></span> + 1 Gilded Airport Staff</h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Hanger -->
+				<button class="swButtonIron" title="Its like a big metal birdhouse for a big metal bird." type="submit" id="buyHanger">
+					<h1>Hanger</h1>
+					<h2>Houses 5 Planes</h2>
+					<h2><span id="Hanger"></span> Hangers | Cost: 2 Empty Lots + $<span id="HangerCost"></span> + 1 Gilded Airport Staff</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-			<button class="swButtonIron" title="Is the exit through a gift shop? The exit is ALWAYS through a gift shop." type="submit" id="buyGiftShop"><h1> Gift Shop</h1>
-			<h2>Increases Sales from Passengers | 2MWh/Second</h2>
-			<h2> <span id="GiftShop"></span> Gift Shops | Cost: $<span id="GiftShopCost"></span> + 1 Gilded Airport Staff</h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Terminal -->
+				<button class="swButtonIron" title="Faster loading, more money! Plus we can just store a plane at the terminal." type="submit" id="buyTerminal">
+					<h1>Terminal</h1>
+					<h2>Increases Base Plane Ticket | Houses 1 Plane</h2>
+					<h2><span id="Terminal"></span> Terminals | Cost: $<span id="TerminalCost"></span> + 1 Gilded Airport Staff</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 			
-		
+			<!-- Gift Shop -->
+				<button class="swButtonIron" title="Is the exit through a gift shop? The exit is ALWAYS through a gift shop." type="submit" id="buyGiftShop">
+					<h1>Gift Shop</h1>
+					<h2>Increases Sales from Passengers | 2MWh/Second</h2>
+					<h2><span id="GiftShop"></span> Gift Shops | Cost: $<span id="GiftShopCost"></span> + 1 Gilded Airport Staff</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
 		</div>
+		<!----------------------->
+		<!-- END OF PLANES TAB -->
+		<!----------------------->
+		
+		
+		<!---------------------------->
+		<!-- START OF CONSTRUCT TAB -->
+		<!---------------------------->
 		<div id="ConstructionTab" class="tabcontent">
-		
-			<button class="swButtonIron" title="Nothing like government involvement in the morning." type="submit" id="buyPermit"><h1> Building Permits:</h1>
-			<h2> <span id="Permit"></span> Permits | Cost: $<span id="PermitCost"></span></h2></button>
-			<br /><br /><hr><br /><br />
 			
-			<button class="swButtonIron" title="We should just keep one of these to store all the money." type="submit" id="BuildWarehouse"><h1> Warehouse Construction:</h1>
-			<h2> <span id="Warehouse"></span> Warehouses | Rented for $3,000 each</h2>
-			<br />
-			<h2>   <span id="WarehouseConsPartCost"></span> Construction Parts</h2>
-			<h2>   <span id="WarehouseGlassCost"></span> Glass</h2>
-			<h2>   <span id="WarehouseACCost"></span> A/C Units</h2>
-			<h2>   <span id="WarehouseSpoolCost"></span> Spools of Wire</h2>
-			<h2>   <span id="WarehouseLightbulbCost"></span> Lightbulbs</h2>
-			<br />
-			<h2>It will take <span id="WarehouseBuildTime"></span> seconds to build.</h2></button>
-			<br /><br /><hr><br /><br />
-		
-			<button class="swButtonGlass" title="It isn't the tallest building, but damn its tall!" type="submit" id="BuildSkyscraper"><h1> Skyscraper Construction:</h1>
-			<h2> <span id="Skyscraper"></span> Skyscrapers | Rented for $42,500 each</h2>
-			<br />
-			<h2>   <span id="SkyscraperConsPartCost"></span> Construction Parts</h2>
-			<h2>   <span id="SkyscraperGlassCost"></span> Glass</h2>
-			<h2>   <span id="SkyscraperACCost"></span> A/C Units</h2>
-			<h2>   <span id="SkyscraperSpoolCost"></span> Spools of Wire</h2>
-			<h2>   <span id="SkyscraperLightbulbCost"></span> Lightbulbs</h2>
-			<br />
-			<h2>It will take <span id="SkyscraperBuildTime"></span> seconds to build.</h2></button>
-			<br /><br /><hr><br /><br />
+			<!-- Permits -->
+				<button class="swButtonIron" title="Nothing like government involvement in the morning." type="submit" id="buyPermit">
+					<h1>Building Permits:</h1>
+					<h2><span id="Permit"></span> Permits | Cost: $<span id="PermitCost"></span></h2>
+				</button>
+			
+			<br /><br />
+			<hr>
+			<br /><br />
+			
+			<!-- Warehouse -->
+				<button class="swButtonIron" title="We should just keep one of these to store all the money." type="submit" id="BuildWarehouse">
+					<h1>Warehouse Construction:</h1>
+					<h2><span id="Warehouse"></span> Warehouses | Rented for $3,000 each</h2>
+					<br />
+					<h2><span id="WarehouseConsPartCost"></span> Construction Parts</h2>
+					<h2><span id="WarehouseGlassCost"></span> Glass</h2>
+					<h2><span id="WarehouseACCost"></span> A/C Units</h2>
+					<h2><span id="WarehouseSpoolCost"></span> Spools of Wire</h2>
+					<h2><span id="WarehouseLightbulbCost"></span> Lightbulbs</h2>
+					<br />
+					<h2>It will take <span id="WarehouseBuildTime"></span> seconds to build.</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
+			
+			<!-- Skyscrapers -->
+				<button class="swButtonGlass" title="It isn't the tallest building, but damn its tall!" type="submit" id="BuildSkyscraper">
+					<h1>Skyscraper Construction:</h1>
+					<h2><span id="Skyscraper"></span> Skyscrapers | Rented for $42,500 each</h2>
+					<br />
+					<h2><span id="SkyscraperConsPartCost"></span> Construction Parts</h2>
+					<h2><span id="SkyscraperGlassCost"></span> Glass</h2>
+					<h2><span id="SkyscraperACCost"></span> A/C Units</h2>
+					<h2><span id="SkyscraperSpoolCost"></span> Spools of Wire</h2>
+					<h2><span id="SkyscraperLightbulbCost"></span> Lightbulbs</h2>
+					<br />
+					<h2>It will take <span id="SkyscraperBuildTime"></span> seconds to build.</h2>
+				</button>
+				
+			<br /><br />
+			<hr>
+			<br /><br />
 		
 		</div>
+		<!-------------------------->
+		<!-- END OF CONSTRUCT TAB -->
+		<!-------------------------->
 		
+		
+		<!-- UNUSED -->
 		<div id="RoboticsTab" class="tabcontent">
-		
-		
 		</div>
 
 		
-	
+		<!-------------------------->
+		<!-- START OF LICENSE TAB -->
+		<!-------------------------->
 		<div id="LicenseTab" class="tabcontent">
+			
 			<br />
+			
 			<h1>Licenses:</h1>
 			<h2>Money for New License: $<span id="GenCost"></span></h2>
 			<h2>Licenses:	<span id="GenPoints"></span></h2>
+			<!-- Unlock workshop tab -->
 			<button class="swButtonLocked" type="submit" id="UnlockCoal">Factories<br /><span id="GenCoalStatus"></span></button>
 			
-			<br /><button class="swButtonLocked" type="submit" id="UnlockOil">Oil<br /><span id="GenOilStatus"></span></button>
+			<br />
+			<!-- Unlock oil tab -->
+			<button class="swButtonLocked" type="submit" id="UnlockOil">Oil<br /><span id="GenOilStatus"></span></button>
 			
-			<br /><button class="swButtonLocked" type="submit" id="UnlockGlass">Sand<br /><span id="GenGlassStatus"></span></button>
+			<br />
+			<!-- Unlock glass tab -->
+			<button class="swButtonLocked" type="submit" id="UnlockGlass">Sand<br /><span id="GenGlassStatus"></span></button>
 			
-			<br /><button class="swButtonLocked" type="submit" id="UnlockPower">Power<br /><span id="GenPowerStatus"></span></button>
+			<br />
+			<!-- Unlock power tab -->
+			<button class="swButtonLocked" type="submit" id="UnlockPower">Power<br /><span id="GenPowerStatus"></span></button>
+			
 			<br /><br /><br />
+			
 		</div>
+		<!------------------------>
+		<!-- END OF LICENSE TAB -->
+		<!------------------------>
 	
+	
+		<!------------------------->
+		<!-- START OF GILDED TAB -->
+		<!------------------------->
 		<div id="GildedTab" class="tabcontent">
-			<script src="engine.js"></script>
+			
+			<!-- TAB SELECTOR -->
 			<ul class="tab2">
 				<li><a href="#" class="tablinks2" onclick="openGilded(event, '1Tab')">Level 1</a></li>
 				<li><a href="#" class="tablinks2" onclick="openGilded(event, '2Tab')">Level 2</a></li>
 				<li><a href="#" class="tablinks2" onclick="openGilded(event, '3Tab')">Personnel</a></li>
 				<li><a href="#" class="tablinks2" onclick="openGilded(event, '4Tab')">Software</a></li>
 			</ul>
+			
+			<!-- TAB 1 -->
+			<!-- PRIMARY RESOURCES -->
 			<div id="1Tab" class="tabcontent2">
-				<button class="swButtonGilded" type="submit" id="buyGildedIronMine"><h1> Gilded Iron Mines</h1>
-				<h2>10 Iron/Second | Persists through retirement</h2>
-				<h2> <span id="GildedIronMine"></span> Gilded Iron Mines | Cost: <span id="GildedIronMineCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" type="submit" id="buyGildedCoalMine"><h1> Gilded Coal Mines</h1>
-				<h2>6 Coal/Second | Persists through retirement</h2>
-				<h2> <span id="GildedCoalMine"></span> Gilded Coal Mines | Cost: <span id="GildedCoalMineCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" type="submit" id="buyGildedCopperMine"><h1> Gilded Copper Mines</h1>
-				<h2>10 Copper/Second | Persists through retirement</h2>
-				<h2> <span id="GildedCopperMine"></span> Gilded Copper Mines | Cost: <span id="GildedCopperMineCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" type="submit" id="buyGildedOilWell"><h1> Gilded Oil Well</h1>
-				<h2>20 Oil/Second | Persists through retirement | Requires License to Produce</h2>
-				<h2> <span id="GildedOilWell"></span> Gilded Oil Wells | Cost: <span id="GildedOilWellCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
+				
+				<!-- Iron -->
+					<button class="swButtonGilded" type="submit" id="buyGildedIronMine">
+						<h1>Gilded Iron Mines</h1>
+						<h2>10 Iron/Second | Persists through retirement</h2>
+						<h2><span id="GildedIronMine"></span> Gilded Iron Mines | Cost: <span id="GildedIronMineCost"></span> Gold Coins</h2>
+					</button>
+				
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Coal -->
+					<button class="swButtonGilded" type="submit" id="buyGildedCoalMine">
+						<h1>Gilded Coal Mines</h1>
+						<h2>6 Coal/Second | Persists through retirement</h2>
+						<h2><span id="GildedCoalMine"></span> Gilded Coal Mines | Cost: <span id="GildedCoalMineCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Copper -->
+					<button class="swButtonGilded" type="submit" id="buyGildedCopperMine">
+						<h1>Gilded Copper Mines</h1>
+						<h2>10 Copper/Second | Persists through retirement</h2>
+						<h2><span id="GildedCopperMine"></span> Gilded Copper Mines | Cost: <span id="GildedCopperMineCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Oil -->
+					<button class="swButtonGilded" type="submit" id="buyGildedOilWell">
+						<h1>Gilded Oil Well</h1>
+						<h2>20 Oil/Second | Persists through retirement | Requires License to Produce</h2>
+						<h2><span id="GildedOilWell"></span> Gilded Oil Wells | Cost: <span id="GildedOilWellCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
 
 			</div>
+			
+			<!-- TAB 2 -->
+			<!-- REFINED RESOURCES -->
 			<div id="2Tab" class="tabcontent2">
-				<button class="swButtonGilded" type="submit" id="buyGildedIRefinery"><h1> Gilded Iron Refinery</h1>
-				<h2>20 Iron -> 10 Refined Iron/Second | Persists through retirement | Requires License to Produce</h2>
-				<h2> <span id="GildedIRefinery"></span> Gilded Iron Refineries | Cost: <span id="GildedIRefineryCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" type="submit" id="buyGildedSRefinery"><h1> Gilded Steel Refinery</h1>
-				<h2>10 Iron + 9 Coal -> 10 Steel/Second | Persists through retirement | Requires License to Produce</h2>
-				<h2> <span id="GildedSRefinery"></span> Gilded Steel Refineries | Cost: <span id="GildedSRefineryCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" type="submit" id="buyGildedCRefinery"><h1> Gilded Copper Refinery</h1>
-				<h2>15 Copper -> 10 Refined Copper/Second | Persists through retirement | Requires License to Produce</h2>
-				<h2> <span id="GildedCRefinery"></span> Gilded Copper Refineries | Cost: <span id="GildedCRefineryCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" type="submit" id="buyGildedGRefinery"><h1> Gilded Gas Refinery</h1>
-				<h2>8 Oil -> 4 Gas/Second | Persists through retirement | Requires License to Produce</h2>
-				<h2> <span id="GildedGRefinery"></span> Gilded Iron Refineries | Cost: <span id="GildedGRefineryCost"></span> Gold Coins </h2></button>
+				
+				<!-- Iron -->
+					<button class="swButtonGilded" type="submit" id="buyGildedIRefinery">
+						<h1>Gilded Iron Refinery</h1>
+						<h2>20 Iron -> 10 Refined Iron/Second | Persists through retirement | Requires License to Produce</h2>
+						<h2><span id="GildedIRefinery"></span> Gilded Iron Refineries | Cost: <span id="GildedIRefineryCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Steel -->
+					<button class="swButtonGilded" type="submit" id="buyGildedSRefinery">
+						<h1>Gilded Steel Refinery</h1>
+						<h2>10 Iron + 9 Coal -> 10 Steel/Second | Persists through retirement | Requires License to Produce</h2>
+						<h2><span id="GildedSRefinery"></span> Gilded Steel Refineries | Cost: <span id="GildedSRefineryCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Copper -->
+					<button class="swButtonGilded" type="submit" id="buyGildedCRefinery">
+						<h1>Gilded Copper Refinery</h1>
+						<h2>15 Copper -> 10 Refined Copper/Second | Persists through retirement | Requires License to Produce</h2>
+						<h2><span id="GildedCRefinery"></span> Gilded Copper Refineries | Cost: <span id="GildedCRefineryCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Oil -->
+					<button class="swButtonGilded" type="submit" id="buyGildedGRefinery">
+						<h1>Gilded Gas Refinery</h1>
+						<h2>8 Oil -> 4 Gas/Second | Persists through retirement | Requires License to Produce</h2>
+						<h2><span id="GildedGRefinery"></span> Gilded Iron Refineries | Cost: <span id="GildedGRefineryCost"></span> Gold Coins</h2>
+					</button>
 
-				<button class="swButtonGilded" type="submit" id="buyGildedPRefinery"><h1> Gilded Plastic Refinery</h1>
-				<h2>12 Oil -> 4 Plastic/Second | Persists through retirement | Requires License to Produce</h2>
-				<h2> <span id="GildedPRefinery"></span> Gilded Iron Refineries | Cost: <span id="GildedPRefineryCost"></span> Gold Coins </h2></button>
+					<button class="swButtonGilded" type="submit" id="buyGildedPRefinery">
+						<h1>Gilded Plastic Refinery</h1>
+						<h2>12 Oil -> 4 Plastic/Second | Persists through retirement | Requires License to Produce</h2>
+						<h2><span id="GildedPRefinery"></span> Gilded Iron Refineries | Cost: <span id="GildedPRefineryCost"></span> Gold Coins</h2>
+					</button>
 
-				</table><hr><br /><br />
+				<br /><br />
+				<hr>
+				<br /><br />
 				
 			</div>
+			
+			<!-- TAB 3 -->
+			<!-- SUPPORT SERVICES -->
 			<div id="3Tab" class="tabcontent2">
-			
-				<button class="swButtonGilded" title="Finally! Someone who keeps a track on all the paperwork." type="submit" id="buyGildedLicense"><h1> Gilded File Clerk</h1>
-				<h2>Licenses persist through retirement</h2>
-				<h2> <span id="GildedLicenseStatus"></span> </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" title="Enough of these guys and maybe we can increase A/C Productivity!" type="submit" id="buyGildedEngineer"><h1>Gilded Engineer</h1>
-				<h2>Lowers time to build Planes</h2>
-				<h2> <span id="GildedEngineer"></span> Gilded Engineers | Cost: <span id="GildedEngineerCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" title="**Reflective Vest and Hardhat sold seperately**" type="submit" id="buyGildedForeman"><h1>Gilded Foreman</h1>
-				<h2>Lowers time to Construct Buildings</h2>
-				<h2> <span id="GildedForeman"></span> Gilded Foremans | Cost: <span id="GildedForemanCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" title="Pricey? Maybe.  Union-Free? Absolutely!" type="submit" id="buyGildedAirportStaff"><h1>Gilded Airport Staff</h1>
-				<h2>Allows you to construct additional airport facilities</h2>
-				<h2> <span id="GildedAirportStaff"></span> Gilded Airport Staff | Cost: <span id="GildedAirportStaffCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-			
-				<button class="swButtonGilded" title="So the people I'll be hiring, what are they like? Standard nerds!" type="submit" id="buyGildedProgrammer"><h1>Gilded Programmer</h1>
-				<h2>Produces 10 Lines of Code/Second</h2>
-				<h2> <span id="GildedProgrammer"></span> Gilded Programmers | Cost: <span id="GildedProgrammerCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
-						
-				<button class="swButtonGilded" title="Directors keep the programmers in line.  What? Did you expect a joke? Sorry, we don't mess around here." type="submit" id="buyGildedDirector"><h1>Gilded Director</h1>
-				<h2>Automaticly creates software | Decreases code needed to create software</h2><h2>Allows software to persist through retirement</h2>
-				<h2> <span id="GildedDirector"></span> Gilded Directors | Cost: <span id="GildedDirectorCost"></span> Gold Coins </h2></button>
-				<br /><br /><hr><br /><br />
+				
+				<!-- Licenses -->
+					<button class="swButtonGilded" title="Finally! Someone who keeps a track on all the paperwork." type="submit" id="buyGildedLicense">
+						<h1>Gilded File Clerk</h1>
+						<h2>Licenses persist through retirement</h2>
+						<h2><span id="GildedLicenseStatus"></span></h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Planes -->
+					<button class="swButtonGilded" title="Enough of these guys and maybe we can increase A/C Productivity!" type="submit" id="buyGildedEngineer">
+						<h1>Gilded Engineer</h1>
+						<h2>Lowers time to build Planes</h2>
+						<h2><span id="GildedEngineer"></span> Gilded Engineers | Cost: <span id="GildedEngineerCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Buildings -->
+					<button class="swButtonGilded" title="**Reflective Vest and Hardhat sold seperately**" type="submit" id="buyGildedForeman">
+						<h1>Gilded Foreman</h1>
+						<h2>Lowers time to Construct Buildings</h2>
+						<h2><span id="GildedForeman"></span> Gilded Foremans | Cost: <span id="GildedForemanCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Airport -->
+					<button class="swButtonGilded" title="Pricey? Maybe.  Union-Free? Absolutely!" type="submit" id="buyGildedAirportStaff">
+						<h1>Gilded Airport Staff</h1>
+						<h2>Allows you to construct additional airport facilities</h2>
+						<h2><span id="GildedAirportStaff"></span> Gilded Airport Staff | Cost: <span id="GildedAirportStaffCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Get software -->
+					<button class="swButtonGilded" title="So the people I'll be hiring, what are they like? Standard nerds!" type="submit" id="buyGildedProgrammer">
+						<h1>Gilded Programmer</h1>
+						<h2>Produces 10 Lines of Code/Second</h2>
+						<h2><span id="GildedProgrammer"></span> Gilded Programmers | Cost: <span id="GildedProgrammerCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
+				
+				<!-- Better software -->
+					<button class="swButtonGilded" title="Directors keep the programmers in line.  What? Did you expect a joke? Sorry, we don't mess around here." type="submit" id="buyGildedDirector">
+						<h1>Gilded Director</h1>
+						<h2>Automaticly creates software | Decreases code needed to create software</h2><h2>Allows software to persist through retirement</h2>
+						<h2><span id="GildedDirector"></span> Gilded Directors | Cost: <span id="GildedDirectorCost"></span> Gold Coins</h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
 			
 			</div>
+			
+			<!-- TAB 4 -->
+			<!-- SOFTWARE SERVICES -->
 			<div id="4Tab" class="tabcontent2">
-			<!-- Software -->
-				<button class="swButtonProgram" type="submit" id="buildSoftware"><h1> Software</h1>
-				<h2>Allows you to create permanent programs that upgrade businesses</h2>
-				<h2>Cost: <span id="SoftwareCost"></span> Lines of Code </h2></button><br />
 				
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="swButtonProgram" padding-left 1.8em type="submit" id="AutoCar"><h1>Autonomous Cars</h1>
-				<h2>Increases the dealership prices of cars by 150%</h2>
-				<h2><span id="ProgramAutoCar"></span></h2></button><br />
+				<!-- Software -->
+					<button class="swButtonProgram" type="submit" id="buildSoftware">
+						<h1>Software</h1>
+						<h2>Allows you to create permanent programs that upgrade businesses</h2>
+						<h2>Cost: <span id="SoftwareCost"></span> Lines of Code</h2>
+					</button>
 				
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="swButtonProgram" padding-left: 1.8em type="submit" id="Autopilot"><h1>Autopilot</h1>
-				<h2>Increases base price of planes +$100</h2>
-				<h2><span id="ProgramAutopilot"></span></h2></button><br />
-	
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="swButtonProgram" padding-left: 1.8em type="submit" id="ArmEfficiency"><h1>Automated Arm Efficiency</h1>
-				<h2>Decreases the power useage of automated factories to 9MWh</h2>
-				<h2><span id="ProgramArmEfficiency"></span></h2></button><br />
-
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="swButtonProgram" padding-left: 1.8em type="submit" id="ArrayEfficiency"><h1>Solar Plant Efficiency</h1>
-				<h2>Each program increases the power output of Solar Plant by +5MWh</h2>
-				<h2>Cost: <span id="ProgramArrayEfficiencyCost"></span> Software</h2></button><br />
+				<br />
+				
+				<!-- Dealership -->
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="swButtonProgram" padding-left 1.8em type="submit" id="AutoCar">
+						<h1>Autonomous Cars</h1>
+						<h2>Increases the dealership prices of cars by 150%</h2>
+						<h2><span id="ProgramAutoCar"></span></h2>
+					</button>
+					
+				<br />
+				
+				<!-- Airport -->
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="swButtonProgram" padding-left: 1.8em type="submit" id="Autopilot">
+						<h1>Autopilot</h1>
+						<h2>Increases base price of planes +$100</h2>
+						<h2><span id="ProgramAutopilot"></span></h2>
+					</button>
+					
+				<br />
+				
+				<!-- Armatures -->
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="swButtonProgram" padding-left: 1.8em type="submit" id="ArmEfficiency">
+						<h1>Automated Arm Efficiency</h1>
+						<h2>Decreases the power useage of automated factories to 9MWh</h2>
+						<h2><span id="ProgramArmEfficiency"></span></h2>
+					</button>
+					
+				<br />
+				
+				<!-- Solar -->
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button class="swButtonProgram" padding-left: 1.8em type="submit" id="ArrayEfficiency">
+						<h1>Solar Plant Efficiency</h1>
+						<h2>Each program increases the power output of Solar Plant by +5MWh</h2>
+						<h2>Cost: <span id="ProgramArrayEfficiencyCost"></span> Software</h2>
+					</button>
+					
+				<br />
+				
 			</div>
 		</div>
+		<!----------------------->
+		<!-- END OF GILDED TAB -->
+		<!----------------------->
+		
+		
+		<!-------------------------->
+		<!-- START OF OPTIONS TAB -->
+		<!-------------------------->
 		<div id="OptionsTab" class="tabcontent">
-			
-		
-		
 		
 			<button class="swButtonIron" type="submit" id="save">Save</button>
 			<button class="swButtonIron" type="submit" id="load">Load</button>
@@ -790,10 +1735,15 @@
 			<br /><br />
 			<button class="swButtonIron" type="submit" id="InvertingPage">Invert Page</button>
 		</div>
+		<!------------------------>
+		<!-- END OF OPTIONS TAB -->
+		<!------------------------>
 		
 		
+		<!----------------------->
+		<!-- START OF HELP TAB -->
+		<!----------------------->
 		<div id="HelpTab" class="tabcontent">
-			<FONT color=Black>
 			<h1> Vertical Monopoly: </h1>
 			<h2>Vertical Monopoly is a incremental game about buying up mines, refineries, and factories to monopolize on the industry.  To make money, you need to produce enough resources to sample to your client to start a contract.<br />
 			<br />
@@ -823,175 +1773,363 @@
 			<h1>Retiring: </h1>
 			Once you get to a suitable place to retire, go to your license page and click retire.  For each million dollars you have you'll get a gold coin so that the next generation can have upgraded stuff to<br />
 			build their company.  Its important to leave them the gold coins so they don't turn to a life of <button id="UnlockCrime" class="link">crime</button>!
-			</FONT>
 			
 		</div>
+		<!--------------------->
+		<!-- END OF HELP TAB -->
+		<!--------------------->
+		
+	
+	<!--/////////////////////////-->
+	<!--/////////////////////////-->
+	<!--//// CONTRABAND TABS ////-->
+	<!--/////////////////////////-->
+	<!--/////////////////////////-->
+	
+	
+		<!----------------------->
+		<!-- START OF WEED TAB -->
+		<!----------------------->
 		<div id="WeedTab" class="tabcontent">
-				<button class="swButtonElec" type="submit" id="buyWeedplant"><h1> Weed Plant</h1>
-				<h2>1 Weed/Second</h2>
-				<h2> <span id="WeedPlant"></span> Weed Plants | Cost: $<span id="WeedPlantCost"></span>  </h2></button>
 				
-				<button class="swButtonElec" type="submit" id="buyWeedFarm"><h1> Weed Farm</h1>
-				<h2>40 Weed/Second</h2>
-				<h2> <span id="WeedFarm"></span> Weed Farms | Cost: 20 Weed Plants + $<span id="WeedFarmCost"></span>  </h2></button><br /><br />
-		
-				<button class="swButtonElec" type="submit" id="SellWeed"><h1> Sell Weed</h1>
-				<h2>$10 each</h2></button>
+			<!-- Weed -->
+				<button class="swButtonElec" type="submit" id="buyWeedplant">
+					<h1>Weed Plant</h1>
+					<h2>1 Weed/Second</h2>
+					<h2><span id="WeedPlant"></span> Weed Plants | Cost: $<span id="WeedPlantCost"></span></h2>
+				</button>
+				
+				<button class="swButtonElec" type="submit" id="buyWeedFarm">
+					<h1>Weed Farm</h1>
+					<h2>40 Weed/Second</h2>
+					<h2><span id="WeedFarm"></span> Weed Farms | Cost: 20 Weed Plants + $<span id="WeedFarmCost"></span></h2>
+				</button>
+				
+			<br /><br />
 			
-				<button class="swButtonElec" type="submit" id="buyWeedDealer"><h1> Weed Dealer</h1>
-				<h2>Sells 5 Weed/Second for $<span id="WeedDealerPrice"></span></h2>
-				<h2> <span id="WeedDealer"></span> Weed Dealers | Cost: $<span id="WeedDealerCost"></span>  </h2></button>
+			<!-- Dealer -->
+				<button class="swButtonElec" type="submit" id="SellWeed">
+					<h1>Sell Weed</h1>
+					<h2>$10 each</h2>
+				</button>
+			
+				<button class="swButtonElec" type="submit" id="buyWeedDealer">
+					<h1>Weed Dealer</h1>
+					<h2>Sells 5 Weed/Second for $<span id="WeedDealerPrice"></span></h2>
+					<h2><span id="WeedDealer"></span> Weed Dealers | Cost: $<span id="WeedDealerCost"></span></h2>
+				</button>
+				
 		</div>
+		<!----------------------->
+		<!-- END OF WEED TAB -->
+		<!----------------------->
 		
+		
+		<!-------------------------->
+		<!-- START OF COCAINE TAB -->
+		<!-------------------------->
 		<div id="CocaineTab" class="tabcontent">
-				<button class="swButtonElec" type="submit" id="buyCocaplant"><h1> Coca Plant</h1>
-				<h2>2 Coca/Second</h2>
-				<h2> <span id="CocaPlant"></span> Coca Plants | Cost: $<span id="CocaPlantCost"></span>  </h2></button>
-				
-				<button class="swButtonElec" type="submit" id="buyCocaFarm"><h1> Coca Farm</h1>
-				<h2>80 Coca/Second</h2>
-				<h2> <span id="CocaFarm"></span> Coca Farms | Cost: 20 Coca Plants + $<span id="CocaFarmCost"></span>  </h2></button><br /><br />
-				
-				<button class="swButtonWhite" type="submit" id="BuyCocaRefinery"><h1>Coca Refineries</h1>
-				<h2>10 Coca -> 2 Cocaine/1MWh per Second</h2>
-				<h2> <span id="CocaRefinery"></span> Coca Refineries | Cost: $<span id="CocaRefineryCost"></span>  </h2></button><br /><br />
-		
-				<button class="swButtonWhite" type="submit" id="SellCocaine"><h1> Sell Cocaine</h1>
-				<h2>$900 each</h2></button>
 			
-				<button class="swButtonWhite" type="submit" id="buyCocaineDealer"><h1> Cocaine Dealer</h1>
-				<h2>Sells 5 Cocaine/Second for $<span id="CocaineDealerPrice"></span></h2>
-				<h2> <span id="CocaineDealer"></span> Cocaine Dealers | Cost: $<span id="CocaineDealerCost"></span>  </h2></button>
-		
-				<button class="swButtonWhite" type="submit" id="GetHigh"><h1> Snort Cocaine</h1>
-				<h2>Snort 100 cocaine to get High for 10 seconds</h2>
-				<h2>Being High allows you to hold 'Enter' to sell drugs at extreme speed</h2></button><br /><br />
+			<!-- Plants -->
+				<button class="swButtonElec" type="submit" id="buyCocaplant">
+					<h1>Coca Plant</h1>
+					<h2>2 Coca/Second</h2>
+					<h2><span id="CocaPlant"></span> Coca Plants | Cost: $<span id="CocaPlantCost"></span></h2>
+				</button>
 				
-				<button class="swButtonCrack" type="submit" id="BuyCocaineRefinery"><h1>Crack Lab</h1>
-				<h2>4 Cocaine -> 1 Crack/5MWh per Second</h2>
-				<h2> <span id="CocaineRefinery"></span> Crack Labs | Cost: $<span id="CocaineRefineryCost"></span>  </h2></button><br /><br />
-		
-				<button class="swButtonCrack" type="submit" id="SellCrack"><h1> Sell Crack</h1>
-				<h2>$7,000 each</h2></button>
+				<button class="swButtonElec" type="submit" id="buyCocaFarm">
+					<h1>Coca Farm</h1>
+					<h2>80 Coca/Second</h2>
+					<h2><span id="CocaFarm"></span> Coca Farms | Cost: 20 Coca Plants + $<span id="CocaFarmCost"></span></h2>
+				</button>
+				
+			<br /><br />
 			
-				<button class="swButtonCrack" type="submit" id="buyCrackDealer"><h1> Crack Dealer</h1>
-				<h2>Sells 5 Crack/Second for $<span id="CrackDealerPrice"></span></h2>
-				<h2> <span id="CrackDealer"></span> Crack Dealers | Cost: $<span id="CrackDealerCost"></span>  </h2></button>
+			<!-- Refinery -->
+				<button class="swButtonWhite" type="submit" id="BuyCocaRefinery">
+					<h1>Coca Refineries</h1>
+					<h2>10 Coca -> 2 Cocaine/1MWh per Second</h2>
+					<h2><span id="CocaRefinery"></span> Coca Refineries | Cost: $<span id="CocaRefineryCost"></span></h2>
+				</button>
+				
+			<br /><br />
+
+			<!-- Dealer -->
+				<button class="swButtonWhite" type="submit" id="SellCocaine">
+					<h1>Sell Cocaine</h1>
+					<h2>$900 each</h2>
+				</button>
+			
+				<button class="swButtonWhite" type="submit" id="buyCocaineDealer">
+					<h1>Cocaine Dealer</h1>
+					<h2>Sells 5 Cocaine/Second for $<span id="CocaineDealerPrice"></span></h2>
+					<h2><span id="CocaineDealer"></span> Cocaine Dealers | Cost: $<span id="CocaineDealerCost"></span></h2>
+				</button>
+		
+				<button class="swButtonWhite" type="submit" id="GetHigh">
+					<h1>Snort Cocaine</h1>
+					<h2>Snort 100 cocaine to get High for 10 seconds</h2>
+					<h2>Being High allows you to hold 'Enter' to sell drugs at extreme speed</h2>
+				</button>
+				
+			<br /><br />
+				
+			<!-- Crack -->
+				<button class="swButtonCrack" type="submit" id="BuyCocaineRefinery">
+					<h1>Crack Lab</h1>
+					<h2>4 Cocaine -> 1 Crack/5MWh per Second</h2>
+					<h2><span id="CocaineRefinery"></span> Crack Labs | Cost: $<span id="CocaineRefineryCost"></span></h2>
+				</button>
+				
+			<br /><br />
+		
+			<!-- Crack Dealer -->
+				<button class="swButtonCrack" type="submit" id="SellCrack">
+					<h1>Sell Crack</h1>
+					<h2>$7,000 each</h2>
+				</button>
+			
+				<button class="swButtonCrack" type="submit" id="buyCrackDealer">
+					<h1>Crack Dealer</h1>
+					<h2>Sells 5 Crack/Second for $<span id="CrackDealerPrice"></span></h2>
+					<h2><span id="CrackDealer"></span> Crack Dealers | Cost: $<span id="CrackDealerCost"></span></h2>
+				</button>
 
 		</div>
+		<!------------------------>
+		<!-- END OF COCAINE TAB -->
+		<!------------------------>
 		
+		
+		<!----------------------->
+		<!-- START OF METH TAB -->
+		<!----------------------->
 		<div id="MethTab" class="tabcontent">
 				
-				<button class="swButtonGlass" type="submit" id="BuyMethRefinery"><h1>Meth Lab</h1>
-				<h2>30 Sudafed + $50,000 -> 5 Meth/15MWh per Second</h2>
-				<h2> <span id="MethRefinery"></span> Meth Labs | Cost: $<span id="MethRefineryCost"></span>  </h2></button><br /><br />
-		
-				<button class="swButtonGlass" type="submit" id="SellMeth"><h1> Sell Meth</h1>
-				<h2>$30,000 each</h2></button>
+			<!-- Meth -->
+				<button class="swButtonGlass" type="submit" id="BuyMethRefinery">
+					<h1>Meth Lab</h1>
+					<h2>30 Sudafed + $50,000 -> 5 Meth/15MWh per Second</h2>
+					<h2><span id="MethRefinery"></span> Meth Labs | Cost: $<span id="MethRefineryCost"></span></h2>
+				</button>
+				
+			<br /><br />
 			
-				<button class="swButtonGlass" type="submit" id="buyMethDealer"><h1> Meth Dealer</h1>
-				<h2>Sells 5 Meth/Second for $<span id="MethDealerPrice"></span></h2>
-				<h2> <span id="MethDealer"></span> Meth Dealers | Cost: $<span id="MethDealerCost"></span>  </h2></button><br /><br />
+			<!-- Dealer -->
+				<button class="swButtonGlass" type="submit" id="SellMeth">
+					<h1>Sell Meth</h1>
+					<h2>$30,000 each</h2>
+				</button>
 			
-				<button class="swButtonGlass" type="submit" id="buySmurf"><h1> Smurf</h1>
-				<h2>10 Sudafed/Second</h2>
-				<h2> <span id="Smurf"></span> Smurfs | Cost: <span id="SmurfCost"></span> Meth </h2></button>
+				<button class="swButtonGlass" type="submit" id="buyMethDealer">
+					<h1>Meth Dealer</h1>
+					<h2>Sells 5 Meth/Second for $<span id="MethDealerPrice"></span></h2>
+					<h2><span id="MethDealer"></span> Meth Dealers | Cost: $<span id="MethDealerCost"></span></h2>
+				</button>
+				
+			<br /><br />
+			
+			<!-- Pharma? -->
+				<button class="swButtonGlass" type="submit" id="buySmurf">
+					<h1>Smurf</h1>
+					<h2>10 Sudafed/Second</h2>
+					<h2><span id="Smurf"></span> Smurfs | Cost: <span id="SmurfCost"></span> Meth</h2>
+				</button>
 
 		</div>
+		<!--------------------->
+		<!-- END OF METH TAB -->
+		<!--------------------->
 		
+		
+		<!---------------------->
+		<!-- START OF GUN TAB -->
+		<!---------------------->
 		<div id="GunTab" class="tabcontent">
 			
-				<button class="swButtonIron" type="submit" id="buySmallArmFactory"><h1>Small Arm Factory</h1>
-				<h2>15 Refined Iron -> 1 Small Arm/3MWh per Second</h2>
-				<h2> <span id="SmallArmFactory"></span> Small Arm Factories | Cost: $<span id="SmallArmFactoryCost"></span>  </h2></button>
+			<!-- Small -->
+				<button class="swButtonIron" type="submit" id="buySmallArmFactory">
+					<h1>Small Arm Factory</h1>
+					<h2>15 Refined Iron -> 1 Small Arm/3MWh per Second</h2>
+					<h2><span id="SmallArmFactory"></span> Small Arm Factories | Cost: $<span id="SmallArmFactoryCost"></span></h2>
+				</button>
 				
-				<button class="swButtonIron" type="submit" id="armDealersSmall"><h1>Arm Dealers with Small Arms</h1>
-				<h2>Increases the price your dealers can sell product</h2>
-				<h2> Cost: <span id="SmallArmDealers1"></span> Small Arms + <span id="SmallArmDealers2"></span> Small Caliber Bullets  </h2></button><br /><br />
+				<button class="swButtonIron" type="submit" id="armDealersSmall">
+					<h1>Arm Dealers with Small Arms</h1>
+					<h2>Increases the price your dealers can sell product</h2>
+					<h2>Cost: <span id="SmallArmDealers1"></span> Small Arms + <span id="SmallArmDealers2"></span> Small Caliber Bullets</h2>
+				</button>
+				
+			<br /><br />
 			
-				<button class="swButtonIron" type="submit" id="buyHeavyArmFactory"><h1>Heavy Arm Factory</h1>
-				<h2>15 Refined Iron + 15 Steel -> 1 Heavy Arm/3MWh per Second</h2>
-				<h2> <span id="HeavyArmFactory"></span> Heavy Arm Factories | Cost: $<span id="HeavyArmFactoryCost"></span>  </h2></button>
+			<!-- Heavy -->
+				<button class="swButtonIron" type="submit" id="buyHeavyArmFactory">
+					<h1>Heavy Arm Factory</h1>
+					<h2>15 Refined Iron + 15 Steel -> 1 Heavy Arm/3MWh per Second</h2>
+					<h2><span id="HeavyArmFactory"></span> Heavy Arm Factories | Cost: $<span id="HeavyArmFactoryCost"></span></h2>
+				</button>
 				
-				<button class="swButtonIron" type="submit" id="armDealersHeavy"><h1>Arm Dealers with Heavy Arms</h1>
-				<h2>Increases the price your dealers can sell product</h2>
-				<h2> Cost: <span id="HeavyArmDealers1"></span> Heavy Arms + <span id="HeavyArmDealers2"></span> Heavy Caliber Bullets  </h2></button><br /><br />
-		
+				<button class="swButtonIron" type="submit" id="armDealersHeavy">
+					<h1>Arm Dealers with Heavy Arms</h1>
+					<h2>Increases the price your dealers can sell product</h2>
+					<h2>Cost: <span id="HeavyArmDealers1"></span> Heavy Arms + <span id="HeavyArmDealers2"></span> Heavy Caliber Bullets</h2>
+				</button>
+				
+			<br /><br />
 		
 		</div>
+		<!-------------------->
+		<!-- END OF GUN TAB -->
+		<!-------------------->
 		
+		
+		<!----------------------->
+		<!-- START OF AMMO TAB -->
+		<!----------------------->
 		<div id="AmmoTab" class="tabcontent">
 			
-				<button class="swButtonWhite" type="submit" id="buySaltpeterMine"><h1>Saltpeter Mine</h1>
-				<h2>10 Saltpeter/Second</h2>
-				<h2> <span id="SaltpeterMine"></span> Saltpeter Mine Factories | Cost: $<span id="SaltpeterMineCost"></span>  </h2></button><br /><br />
+			<!-- Saltpeter -->
+				<button class="swButtonWhite" type="submit" id="buySaltpeterMine">
+					<h1>Saltpeter Mine</h1>
+					<h2>10 Saltpeter/Second</h2>
+					<h2><span id="SaltpeterMine"></span> Saltpeter Mine Factories | Cost: $<span id="SaltpeterMineCost"></span></h2>
+				</button>
+				
+			<br /><br />
 			
-				<button class="swButtonCoal" type="submit" id="buyGunpowderFactory"><h1>Gunpowder Factory</h1>
-				<h2>5 Saltpeter + 6 Coal -> 10 Gunpowder/3MWh per Second</h2>
-				<h2> <span id="GunpowderFactory"></span> Gunpowder Factories | Cost: $<span id="GunpowderFactoryCost"></span>  </h2></button><br /><br />
+			<!-- Gunpowder -->
+				<button class="swButtonCoal" type="submit" id="buyGunpowderFactory">
+					<h1>Gunpowder Factory</h1>
+					<h2>5 Saltpeter + 6 Coal -> 10 Gunpowder/3MWh per Second</h2>
+					<h2><span id="GunpowderFactory"></span> Gunpowder Factories | Cost: $<span id="GunpowderFactoryCost"></span></h2>
+				</button>
+				
+			<br /><br />
 			
-				<button class="swButtonCopper" type="submit" id="buySmallCaliberFactory"><h1>Small Caliber Bullet Factory</h1>
-				<h2>10 Refined Copper + 10 Gunpowder -> 10 Small Caliber Bullets/3MWh per Second</h2>
-				<h2> <span id="SmallCaliberFactory"></span> Small Caliber Factories | Cost: $<span id="SmallCaliberFactoryCost"></span>  </h2></button><br /><br />
+			<!-- Small Ammo -->
+				<button class="swButtonCopper" type="submit" id="buySmallCaliberFactory">
+					<h1>Small Caliber Bullet Factory</h1>
+					<h2>10 Refined Copper + 10 Gunpowder -> 10 Small Caliber Bullets/3MWh per Second</h2>
+					<h2><span id="SmallCaliberFactory"></span> Small Caliber Factories | Cost: $<span id="SmallCaliberFactoryCost"></span></h2>
+				</button>
+				
+			<br /><br />
 			
-				<button class="swButtonCopper" type="submit" id="buyHighCaliberFactory"><h1>High Caliber Bullet Factory</h1>
-				<h2>20 Refined Copper + 20 Gunpowder -> 10 High Caliber Bullets/3MWh per Second</h2>
-				<h2> <span id="HighCaliberFactory"></span> High Caliber Factories | Cost: $<span id="HighCaliberFactoryCost"></span>  </h2></button>
+			<!-- Heavy Ammo -->
+				<button class="swButtonCopper" type="submit" id="buyHighCaliberFactory">
+					<h1>High Caliber Bullet Factory</h1>
+					<h2>20 Refined Copper + 20 Gunpowder -> 10 High Caliber Bullets/3MWh per Second</h2>
+					<h2><span id="HighCaliberFactory"></span> High Caliber Factories | Cost: $<span id="HighCaliberFactoryCost"></span></h2>
+				</button>
 		
 		</div>
+		<!--------------------->
+		<!-- END OF AMMO TAB -->
+		<!--------------------->
 		
+		
+		<!----------------------------->
+		<!-- START OF ACCOUNTING TAB -->
+		<!----------------------------->
 		<div id="AccountingTab" class="tabcontent">
-		<h1> Statistics: </h1>
-		<br />
-		<h2> Time Played: <span id="HourHolder"></span>:<span id="MinuteHolder"></span>:<span id="SecondHolder"></span> </h2>
-		<br />
-		<h2> Gross Profit: $<span id="GrossMoneyPS"></span></h2>
-		<h2> Total Anti-Contracts: <span id="AntiContracts"></span></h2>
-		<br />			
-		<button class="swButtonIron" type="submit" id="Retire"> <h2>Retirement (1 Gold Coin per $1,000,000)</h2>
-		<h2>Gold Coins Earned by Retiring:	<span id="GoldCoinGain"></span></h2>
-		<br /><FONT STYLE="color: red; font-size: 14pt">Warning! Unable to return to before retiring!</FONT></button>
-		
-		<button class="swHideWords" type="submit" id="RetireFavour"> <h2>Retirement (1 Favour per $1,000,000)</h2>
-		<h2>Favours Earned by Retiring:	<span id="FavourGain"></span></h2>
-		<br /><FONT STYLE="color: red; font-size: 14pt">Warning! Unable to return to before retiring!</FONT></button>
+			
+			<h1>Statistics:</h1>
+			<br />
+			
+			<h2>Time Played: <span id="HourHolder"></span>:<span id="MinuteHolder"></span>:<span id="SecondHolder"></span></h2>
+			<br />
+			
+			<h2> Gross Profit: $<span id="GrossMoneyPS"></span></h2>
+			<h2> Total Anti-Contracts: <span id="AntiContracts"></span></h2>
+			<br />			
+			
+			<!-- LEGAL -->
+			<button class="swButtonIron" type="submit" id="Retire">
+				<h2>Retirement (1 Gold Coin per $1,000,000)</h2>
+				<h2>Gold Coins Earned by Retiring:	<span id="GoldCoinGain"></span></h2>
+				<br />
+				<FONT STYLE="color: red; font-size: 14pt">Warning! Unable to return to before retiring!</FONT>
+			</button>
+			
+			<!-- ILLEGAL -->
+			<button class="swHideWords" type="submit" id="RetireFavour">
+				<h2>Retirement (1 Favour per $1,000,000)</h2>
+				<h2>Favours Earned by Retiring:	<span id="FavourGain"></span></h2>
+				<br />
+				<FONT STYLE="color: red; font-size: 14pt">Warning! Unable to return to before retiring!</FONT>
+			</button>
 		</div>
+		<!--------------------------->
+		<!-- END OF ACCOUNTING TAB -->
+		<!--------------------------->
 		
+		<!------------------------->
+		<!-- START OF FAVOUR TAB -->
+		<!------------------------->
 		<div id="FavourTab" class="tabcontent">
-			<script src="engine.js"></script>
+			
 			<ul class="tab3">
 				<li><a href="#" class="tablinks3" onclick="openFavour(event, '1FavourTab')">For Legal Business</a></li>
 				<li><a href="#" class="tablinks3" onclick="openFavour(event, '2FavourTab')">For Illegal Business</a></li>
 			</ul>
 			
+			<!-- Legal Favours -->
 			<div id="1FavourTab" class="tabcontent3">
-				<button class="swButtonSteel" title="Basic Supply and Demand. Less Supply, More Money." type="submit" id="BuyHitman"><h1> Eliminate Competition</h1>
-				<h2>Increases prices of contracts</h2>
-				<h2> <span id="Hitman"></span> Hitmen | Cost: <span id="HitmanCost"></span> Favours</h2></button>
-				<br /><br /><hr><br /><br />
+					
+					<button class="swButtonSteel" title="Basic Supply and Demand. Less Supply, More Money." type="submit" id="BuyHitman">
+						<h1>Eliminate Competition</h1>
+						<h2>Increases prices of contracts</h2>
+						<h2><span id="Hitman"></span> Hitmen | Cost: <span id="HitmanCost"></span> Favours</h2>
+					</button>
+				
+				<br /><br />
+				<hr>
+				<br /><br />
 			
-				<button class="swButtonSteel" title="We know a guy who knows a guy.  We can trim some of those regulations." type="submit" id="BuyDoEBribe"><h1> Bribe Department of Energy Politicians</h1>
-				<h2>Decreases the price of Nuclear Power Plants</h2>
-				<h2> <span id="DoEBribe"></span> DoE Politicians | Cost: <span id="DoEBribeCost"></span> Favours</h2></button>
-				<br /><br /><hr><br /><br />
+					<button class="swButtonSteel" title="We know a guy who knows a guy.  We can trim some of those regulations." type="submit" id="BuyDoEBribe">
+						<h1>Bribe Department of Energy Politicians</h1>
+						<h2>Decreases the price of Nuclear Power Plants</h2>
+						<h2><span id="DoEBribe"></span> DoE Politicians | Cost: <span id="DoEBribeCost"></span> Favours</h2>
+					</button>
+				
+				<br /><br />
+				<hr>
+				<br /><br />
 			
-				<button class="swButtonSteel" title="We sell them the cars, then steal those cars!" type="submit" id="BuyChopShop"><h1>Chop Shop</h1>
-				<h2>Obtains Motors and Mechanical Parts</h2>
-				<h2> <span id="ChopShop"></span> Chop Shops | Cost: <span id="ChopShopCost"></span> Favours</h2></button>
-				<br /><br /><hr><br /><br />
+					<button class="swButtonSteel" title="We sell them the cars, then steal those cars!" type="submit" id="BuyChopShop">
+						<h1>Chop Shop</h1>
+						<h2>Obtains Motors and Mechanical Parts</h2>
+						<h2><span id="ChopShop"></span> Chop Shops | Cost: <span id="ChopShopCost"></span> Favours</h2>
+					</button>
+				
+				<br /><br />
+				<hr>
+				<br /><br />
+			
 			</div>
 			
+			<!-- Illegal Favours -->
 			<div id="2FavourTab" class="tabcontent3">
 		
-				<button class="swButtonSteel" title="Before we can open casinos, we need to get approval 'legally'." type="submit" id="BuyGenGambling"><h1>Obtain Gambling Rights</h1>
-				<h2>Unlocks Casinos</h2>
-				<h2> <span id="GenGambling"></span></h2></button>
-				<br /><br /><hr><br /><br />
+					<button class="swButtonSteel" title="Before we can open casinos, we need to get approval 'legally'." type="submit" id="BuyGenGambling">
+						<h1>Obtain Gambling Rights</h1>
+						<h2>Unlocks Casinos</h2>
+						<h2> <span id="GenGambling"></span></h2>
+					</button>
+					
+				<br /><br />
+				<hr>
+				<br /><br />
 			
 		
 			</div>
 		
 		</div>
+		<!----------------------->
+		<!-- END OF FAVOUR TAB -->
+		<!----------------------->
+		
+		<!-- Hidden 'shit'? -->
 		<div id="HideShit" class="tabcontent">
 		
 				<li id="RoboticsTab2" class="swHide"><a href="#" class="tablinks" onclick="openCity(event, 'RoboticsTab')">Robotics</a></li>
@@ -1003,5 +2141,7 @@
 				<h2>$<span id="CarContractMoney"></span>/5 Cars</h2>
 				<h2> <span id="CarContract"></span> Car Contracts | <span id="CarContractCar"></span> Car for $<span id="CarContractMoneyPS"></span>  | Cost: <span id="CarContractCost"></span> Cars </h2></button>
 		</div>
-  </body>
+		
+	<script src="engine.js"></script>
+</body>
 </html>
